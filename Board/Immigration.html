@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>캐모아 - 공지사항</title>
+    <title>캐모아 - 유학게시판</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <link rel="stylesheet" href="../Notice/Notice.css">
+    <link rel="stylesheet" href="../Board/Board.css">
     <script>
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
@@ -12,9 +12,11 @@
         });
     </script>
 </head>
+
 <body>
 <!--header 파일에서 작업-->
 <div id="header"></div>
+<!--나중에 내용 넣기-->
 <div id="section">
     <form id="form1" action="../Notice/Notice_read.js" method="post">
         <input type=hidden id="no" name="no" value="">
@@ -31,6 +33,10 @@
             <input class="btn" type="button" value="검색" onclick=""/>
         </form>
     </div>
+    <div>
+        <button class="btn" onclick="location.href='Totalnotice_write.js'">글쓰기</button>
+    </div>
+
     <table>
         <tr>
             <th class="num"><b>번호</b></th>

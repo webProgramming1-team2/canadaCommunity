@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>밴쿠버 한인 커뮤니티 캐모아</title>
+    <title>캐모아 - 로그인</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="../User/LogIn.css">
     <script>
@@ -16,8 +16,22 @@
 <body>
 <!--header 파일에서 작업-->
 <div id="header"></div>
-<!--나중에 내용 넣기-->
-<div id="section"></div>
+<div id="section">
+    <div class="title">LogIn</div>
+    <form method="post" action="../User/LogIn.js">
+        <table>
+            <tr>
+                <td><input class="box" type="text" name="id" maxlength="10" placeholder=" 아이디"></td>
+            </tr>
+            <tr>
+                <td><input class="box" type="password" name="passwd" maxlength="15" placeholder=" 비밀번호"></td>
+            </tr>
+            <tr>
+                <td><input class="s_btn" type="submit" value="로그인"></td>
+            </tr>
+        </table>
+    </form>
+</div>
 <!--footer 파일에서 작업-->
 <div id="footer"></div>
 </body>

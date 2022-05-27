@@ -14,3 +14,25 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+h3 {
+    margin-bottom: 6px;
+    margin-left: 6px;
+}
+
+table {
+    table-layout: fixed;
+}
+
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.notice {
+    float: left;
+    position: relative;
+    left: 250px; height : 330px;
+    width: 500px;
+}
