@@ -28,7 +28,7 @@ ul {
 .ad {
     height: 50px;
     position : absolute;
-    top: 0px;
+    top: 0;
     left : 35%;
     margin-left : clac(50px/ -2);
 }
