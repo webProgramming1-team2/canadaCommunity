@@ -5,3 +5,64 @@
     padding: 0;
     font-family: 'Noto Sans KR', sans-serif;
 }
+
+html {
+    height: 100%;
+}
+
+body {
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding-top: 200px;
+    padding-bottom: 40px;
+    font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+    background-repeat: no-repeat;
+}
+
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
+
+#btn-Yes{
+    height: 30px;
+    width : 90px;
+    border: none;
+
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.card-title{
+    margin-left: 30px;
+}
+
+
+
+.findID{
+    color : red;
+    text-decoration-line : none;
+}
+.logIN{
+    color: whitesmoke;
+    text-decoration-line : none;
+}
+.joinIN{
+    color: red;
+    text-decoration-line : none;
+}
+
+.links{
+    text-align: center;
+    margin-bottom: 10px;
+}
