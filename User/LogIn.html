@@ -3,13 +3,32 @@
 <head>
     <meta charset="utf-8">
     <title>캐모아 - 로그인</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="../User/LogIn.css">
+    <script src="../User/User.json" type="text/javascript"></script>
     <script>
-        $(document).ready(function () {
-            $(document.getElementById("header")).load("../Main/Header.html");
-            $(document.getElementById("footer")).load("../Main/Footer.html");
-        });
+
+        function login(){
+            var loginSuccessed = false;
+            $.getJSON("User.json", function(data) {
+                
+                for(key in data){
+                    console.log("id :"+data[key].id+" ,passwd :"+data[key].passwd);
+                    var id = data[key].id;
+                    var passwd = data[key].passwd;
+                    if(id===document.getElementById("id").value && passwd ===document.getElementById("passwd").value){
+                        loginSuccessed = true;
+                        break;
+                    }
+                }
+                if(loginSuccessed){
+                    alert("로그인에 성공했습니다.");
+                }else{
+                    alert("아이디, 비밀번호가 일치하지 않습니다");
+                }
+                
+            });
+        }
     </script>
 </head>
 
@@ -18,16 +37,16 @@
 <div id="header"></div>
 <div id="section">
     <div class="title">LogIn</div>
-    <form method="post" action="../User/LogIn.js">
+    <form method="post" action="javascript:login();">
         <table>
             <tr>
-                <td><input class="box" type="text" name="id" maxlength="10" placeholder=" 아이디"></td>
+                <td><input class="box" type="text" id="id" maxlength="10" placeholder=" 아이디"></td>
             </tr>
             <tr>
-                <td><input class="box" type="password" name="passwd" maxlength="15" placeholder=" 비밀번호"></td>
+                <td><input class="box" type="password" id="passwd" maxlength="15" placeholder=" 비밀번호"></td>
             </tr>
             <tr>
-                <td><input class="s_btn" type="submit" value="로그인"></td>
+                <td><input class="s_btn" type="submit" id = "login"value="로그인"></td>
             </tr>
         </table>
     </form>
