@@ -23,8 +23,6 @@ table {
 
 tr {
     height: 40px;
-    /*border-bottom : solid 5px gray;*/
-    border: solid 5px gray;
 }
 
 td {
@@ -53,18 +51,22 @@ a {
 .inputBox {
 }
 
-#num {
-    width: 7%;
+.num {
+    width: 5%;
 }
 
-#title {
-    width: 73%;
+.title {
+    width: 65%;
 }
 
-#date {
+.date {
     width: 10%;
 }
 
-#viewNum {
+.nickname {
+    width: 10%;
+}
+
+.viewNum {
     width: 10%;
 }
