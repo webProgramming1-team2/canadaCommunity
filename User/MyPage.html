@@ -17,7 +17,57 @@
 <!--header 파일에서 작업-->
 <div id="header"></div>
 <!--나중에 내용 넣기-->
-<div id="section"></div>
+<div id="section">
+    <div class="title">마이페이지</div>
+    <form name="form" id="form">
+        <table>
+            <tr>
+                <td class="line" colspan="2"></td>
+            </tr>
+            <tr>
+                <th>이름<br>(닉네임)</th>
+                <td><input class="box" type="text" name="name"></td>
+            </tr>
+            <tr>
+                <th>아이디</th>
+                <td><input disabled class="box" type="text" name="id"></td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td><input class="box" type="password" name="passwd"></td>
+            </tr>
+            <tr>
+                <th>비밀번호확인</th>
+                <td><input class="box" type="password" name="r_passwd"></td>
+            </tr>
+            <tr>
+                <th>연락처</th>
+                <td><select name="fst_num">
+                    <option value="">--선택--</option>
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="02">02</option>
+                    <option value="031">031</option>
+                    <option value="070">070</option>
+                </select> - <input class="box" type="text" name="scd_num" size=5 maxlength="4"> -
+                    <input class="box" type="text" name="trd_num" size=5 maxlength="4"></td>
+            </tr>
+
+            <tr>
+                <th>성별</th>
+                <td><input type="radio" name="gender" value="male"> 남자
+                    <input type="radio" name="gender" value="female"> 여자
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <center><input class="s_btn" type="submit" value="저장" onclick="fn_sendMember()"></center>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 <!--footer 파일에서 작업-->
 <div id="footer"></div>
 </body>
