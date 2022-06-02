@@ -6,9 +6,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="../Notice/Notice.css">
     <script>
-        // fetch('../Notice/notice.json')
-        //     .then(response => response.text())
-        //     .then(text => alert(text));
         let noticeList = [];
         let tblStr = "<table>";
         let xhttp = new XMLHttpRequest();
@@ -31,12 +28,7 @@
             download(type_of = "application/json", filename = "notice.json") { // 확장자명을 json 으로 지정
 
                 let txt = [];
-                txt.push("[");
-                for (let i = 0; i < this.data.length; i++) {
-                    txt.push(JSON.stringify(this.data[i]));
-                    if (i !== this.data.length - 1) txt.push(",");
-                }
-                txt.push("]");
+                txt.push(JSON.stringify(this.data, null, 2));
                 let body = document.body; // body 변수 선언
                 const a = document.createElement("a"); // a 태그 생성
                 a.href = URL.createObjectURL(new Blob(txt, {

@@ -25,7 +25,6 @@
         const s_num = form.scd_num.value;
         const t_num = form.trd_num.value;
         const gender = form.gender.value;
-        var jsonData;
 
         if (name.length === 0 || name === "") {
             alert("이름(닉네임) 입력은 필수입니다.");
@@ -54,19 +53,18 @@
         } else if (gender === "") {
             alert("성별 입력은 필수입니다.");
         }else {
-            var userData = new Object();
+            let userData = {};
             userData.name = form.name.value;
             userData.id = form.id.value;
             userData.passwd = form.id.value;
             userData.phone_num = form.fst_num.value + "-" + form.scd_num.value
             + "-" + form.trd_num.value;
             userData.gender = form.gender.value;
-            var json = JSON.stringify(userData);
             
 
             $.getJSON("../Data/User.json", function(data) {
                 
-                data.push(json);
+                data.push(userData);
                 new saveJson(data).download();
                 
             });
@@ -85,14 +83,8 @@
 
         // 파일 다운로드 수행 실시
         download(type_of = "application/json", filename ="User.json") { // 확장자명을 json 으로 지정
-            alert(this.data[2]); // \가 들어가는지 확인하기 위해 Alert로 확인
             let txt = [];
-                txt.push("[");
-                for (let i = 0; i < this.data.length; i++) {
-                    txt.push(JSON.stringify(this.data[i]));
-                    if (i !== this.data.length - 1) txt.push(",");
-                }
-                txt.push("]");
+            txt.push(JSON.stringify(this.data, null, 2));
             let body = document.body; // body 변수 선언
             const a = document.createElement("a"); // a 태그 생성
             
