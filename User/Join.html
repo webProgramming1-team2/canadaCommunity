@@ -8,91 +8,126 @@
     <link rel="stylesheet" href="../User/Join.css">
     <script>
 
-        function fn_sendMember() {
+        
+    let xhttp = new XMLHttpRequest();
+    let tblStr = "<table>";
+    var signUpSuccessed = false;
+    xhttp.open("GET", "../Data/User.json", true);
+    xhttp.send();
+    function fn_sendMember() {
 
-            const form = document.form;
-            const name = form.name.value;
-            const id = form.id.value;
-            const pwd = form.passwd.value;
-            const r_pwd = form.r_passwd.value;
-            const f_num = form.fst_num.value;
-            const s_num = form.scd_num.value;
-            const t_num = form.trd_num.value;
-            const gender = form.gender.value;
+        const form = document.form;
+        const name = form.name.value;
+        const id = form.id.value;
+        const pwd = form.passwd.value;
+        const r_pwd = form.r_passwd.value;
+        const f_num = form.fst_num.value;
+        const s_num = form.scd_num.value;
+        const t_num = form.trd_num.value;
+        const gender = form.gender.value;
+        var jsonData;
 
-            if (name.length === 0 || name === "") {
-                alert("이름(닉네임) 입력은 필수입니다.");
-                form.name.focus();
-            } else if (id.length === 0 || id === "") {
-                alert("아이디 입력은 필수입니다.");
-                form.id.focus();
-            } else if (pwd.length === 0 || pwd === "") {
-                alert("비밀번호 입력은 필수입니다.");
-                form.passwd.focus();
-            } else if (r_pwd.length === 0 || r_pwd === "") {
-                alert("비밀번호 입력은 필수입니다.");
-                form.r_passwd.focus();
-            } else if (r_pwd !== pwd) {
-                alert("비밀번호가 일치하지 않습니다.");
-                form.passwd.focus();
-            } else if (f_num.length === 0 || f_num === "") {
-                alert("연락처 입력은 필수입니다.");
-                form.fst_num.focus();
-            } else if (s_num.length === 0 || s_num === "") {
-                alert("연락처 입력은 필수입니다.");
-                form.scd_num.focus();
-            } else if (t_num.length === 0 || t_num === "") {
-                alert("연락처 입력은 필수입니다.");
-                form.trd_num.focus();
-            } else if (gender === "") {
-                alert("성별 입력은 필수입니다.");
-            }else {
-                var userData = new Object();
-                userData.name = form.name.value;
-                userData.id = form.id.value;
-                userData.passwd = form.id.value;
-                userData.phone_num = form.fst_num.value + "-" + form.scd_num.value
-                + "-" + form.trd_num.value;
-                userData.gender = form.gender.value;
-                var json = JSON.stringify(userData);
-               
+        if (name.length === 0 || name === "") {
+            alert("이름(닉네임) 입력은 필수입니다.");
+            form.name.focus();
+        } else if (id.length === 0 || id === "") {
+            alert("아이디 입력은 필수입니다.");
+            form.id.focus();
+        } else if (pwd.length === 0 || pwd === "") {
+            alert("비밀번호 입력은 필수입니다.");
+            form.passwd.focus();
+        } else if (r_pwd.length === 0 || r_pwd === "") {
+            alert("비밀번호 입력은 필수입니다.");
+            form.r_passwd.focus();
+        } else if (r_pwd !== pwd) {
+            alert("비밀번호가 일치하지 않습니다.");
+            form.passwd.focus();
+        } else if (f_num.length === 0 || f_num === "") {
+            alert("연락처 입력은 필수입니다.");
+            form.fst_num.focus();
+        } else if (s_num.length === 0 || s_num === "") {
+            alert("연락처 입력은 필수입니다.");
+            form.scd_num.focus();
+        } else if (t_num.length === 0 || t_num === "") {
+            alert("연락처 입력은 필수입니다.");
+            form.trd_num.focus();
+        } else if (gender === "") {
+            alert("성별 입력은 필수입니다.");
+        }else {
+            var userData = new Object();
+            userData.name = form.name.value;
+            userData.id = form.id.value;
+            userData.passwd = form.id.value;
+            userData.phone_num = form.fst_num.value + "-" + form.scd_num.value
+            + "-" + form.trd_num.value;
+            userData.gender = form.gender.value;
+            var json = JSON.stringify(userData);
+            
 
-                $.getJSON("User.json", function(data) {
-                    data.push(json);
-                    alert(json);
-                });
+            $.getJSON("../Data/User.json", function(data) {
                 
-               
-
-
+                data.push(json);
+                new saveJson(data).download();
                 
-                // form.method = "post";
-                // form.action = "join_db.jsp";
-                // form.submit();
-                //submit으로 서버에 양식 제출
-            }
+            });
+
+            // form.method = "post";
+            // form.action = "join_db.jsp";
+            // form.submit();
+            //submit으로 서버에 양식 제출
         }
-      
+    }
+    class saveJson {
+        // 클래스 생성자 초기화 실시
+        constructor(data = []) {
+            this.data = data;
+        }
 
-        function btn_click() {
-   
-                if (str == "submit") {
-                form.method = "get";
-                //폼의 메소드 방식
-                form.action = "join_fail.jsp";
-                //데이터를 보낼 곳을 action으로 지정
-                form.target = "param";
-                // 프레임이름?
-
+        // 파일 다운로드 수행 실시
+        download(type_of = "application/json", filename ="User.json") { // 확장자명을 json 으로 지정
+            alert(this.data[2]); // \가 들어가는지 확인하기 위해 Alert로 확인
+            let txt = [];
+                txt.push("[");
+                for (let i = 0; i < this.data.length; i++) {
+                    txt.push(JSON.stringify(this.data[i]));
+                    if (i !== this.data.length - 1) txt.push(",");
                 }
+                txt.push("]");
+            let body = document.body; // body 변수 선언
+            const a = document.createElement("a"); // a 태그 생성
+            
+            a.href = URL.createObjectURL(new Blob(txt, {
+                type: type_of
+            }));
+            
+            a.setAttribute("download", filename); // a 태그에 다운로드 속성 추가
+            body.appendChild(a); // body에 a 태그 추가
+            a.click(); // 클릭 이벤트를 발생시켜 다운로드
+            body.removeChild(a); // body에서 제거
+            
         }
+    }
+    
+    $(document).ready(function () {
+        $(document.getElementById("header")).load("../Main/Header.html");
+        $(document.getElementById("footer")).load("../Main/Footer.html");
 
-        $(document).ready(function () {
-            $(document.getElementById("header")).load("../Main/Header.html");
-            $(document.getElementById("footer")).load("../Main/Footer.html");
-        });
+        $("#list").html(tblStr);
+    });
+    function btn_click() {
 
-    </script>
+            if (str == "submit") {
+            form.method = "get";
+            //폼의 메소드 방식
+            form.action = "join_fail.jsp";
+            //데이터를 보낼 곳을 action으로 지정
+            form.target = "param";
+            // 프레임이름?
+
+            }
+    }
+
+</script>
 </head>
 
 <body>
