@@ -15,7 +15,12 @@ body {
     flex-direction: column;
 }
 
-.section {
+#wrapper{
+    height: auto;
+    min-height: 100%;
+}
+
+#section {
     flex: 1;
     margin: auto auto;
 }
@@ -63,4 +68,9 @@ td {
 .box {
     height: 40px;
     width: 300px;
+}
+
+#footer{
+    position: relative;
+    transform: translateY(-100%);
 }

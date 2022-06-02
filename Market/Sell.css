@@ -5,3 +5,22 @@
     padding: 0;
     font-family: 'Noto Sans KR', sans-serif;
 }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#wrapper{
+    height: auto;
+    min-height: 100%;
+}
+
+#footer{
+    position: relative;
+    transform: translateY(-100%);
+}

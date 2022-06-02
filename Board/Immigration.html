@@ -14,45 +14,47 @@
 </head>
 
 <body>
-<!--header 파일에서 작업-->
-<div id="header"></div>
-<!--나중에 내용 넣기-->
-<div id="section">
-    <form id="form1" action="../Notice/Notice_read.js" method="post">
-        <input type=hidden id="no" name="no" value="">
-        <input type=hidden name="page" value="">
-        <input type=hidden name="searchColumn" value="">
-        <input type=hidden name="keyword" value="">
-    </form>
-
-    <div class="search">
-        <br>
-        <form id="form2" action="" method="post">
-            <input type=hidden id="page" name="page" value=""/>
-            <input class="inputBox" type="text" maxlength="50" value=""/>
-            <input class="btn" type="button" value="검색" onclick=""/>
+<div id="wrapper">
+    <!--header 파일에서 작업-->
+    <div id="header"></div>
+    <!--나중에 내용 넣기-->
+    <div id="section">
+        <form id="form1" action="../Notice/Notice_read.js" method="post">
+            <input type=hidden id="no" name="no" value="">
+            <input type=hidden name="page" value="">
+            <input type=hidden name="searchColumn" value="">
+            <input type=hidden name="keyword" value="">
         </form>
-    </div>
-    <div>
-        <button class="btn" onclick="location.href='Totalnotice_write.js'">글쓰기</button>
-    </div>
 
-    <table>
-        <tr>
-            <th class="num"><b>번호</b></th>
-            <th class="title"><b>제목</b></th>
-            <th class="date"><b>작성일</b></th>
-            <th class="writer"><b>작성자</b></th>
-            <th class="viewNum"><b>조회수</b></th>
-        </tr>
-        <tr>
-            <td class="num"><b>d</b></td>
-            <td class="title"><b><a href=''>d</a></b></td>
-            <td class="date"><b>d</b></td>
-            <td class="writer"><b>d</b></td>
-            <td class="viewNum"><b>d</b></td>
-        </tr>
-    </table>
+        <div class="search">
+            <br>
+            <form id="form2" action="" method="post">
+                <input type=hidden id="page" name="page" value=""/>
+                <input class="inputBox" type="text" maxlength="50" value=""/>
+                <input class="btn" type="button" value="검색" onclick=""/>
+            </form>
+        </div>
+        <div>
+            <button class="btn" onclick="location.href='Totalnotice_write.js'">글쓰기</button>
+        </div>
+
+        <table>
+            <tr>
+                <th class="num"><b>번호</b></th>
+                <th class="title"><b>제목</b></th>
+                <th class="date"><b>작성일</b></th>
+                <th class="writer"><b>작성자</b></th>
+                <th class="viewNum"><b>조회수</b></th>
+            </tr>
+            <tr>
+                <td class="num"><b>d</b></td>
+                <td class="title"><b><a href=''>d</a></b></td>
+                <td class="date"><b>d</b></td>
+                <td class="writer"><b>d</b></td>
+                <td class="viewNum"><b>d</b></td>
+            </tr>
+        </table>
+    </div>
 </div>
 <!--footer 파일에서 작업-->
 <div id="footer"></div>

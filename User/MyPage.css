@@ -15,7 +15,12 @@ body {
     flex-direction: column;
 }
 
-.section {
+#wrapper{
+    height: auto;
+    min-height: 100%;
+}
+
+#section {
     flex: 1;
     margin-bottom:30px;
     margin-top:30px;
@@ -65,4 +70,9 @@ select {
 
 .box {
     height: 25px;
+}
+
+#footer{
+    position: relative;
+    transform: translateY(-100%);
 }

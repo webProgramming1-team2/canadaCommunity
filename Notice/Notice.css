@@ -6,6 +6,15 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 table {
     width: 100%;
     margin-left: auto;
@@ -24,6 +33,11 @@ td {
 
 a {
     color: black;
+}
+
+#wrapper{
+    height: auto;
+    min-height: 100%;
 }
 
 #section {
@@ -67,4 +81,9 @@ a {
 .viewNum {
     width: 5%;
     text-align: center;
+}
+
+#footer{
+    position: relative;
+    transform: translateY(-100%);
 }

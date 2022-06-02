@@ -33,6 +33,11 @@ a {
     color: black;
 }
 
+#wrapper{
+    height: auto;
+    min-height: 100%;
+}
+
 #section {
     width: 58%;
     margin-left: auto;
@@ -69,4 +74,9 @@ a {
 
 .viewNum {
     width: 5%;
+}
+
+#footer{
+    position: relative;
+    transform: translateY(-100%);
 }

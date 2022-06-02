@@ -12,52 +12,55 @@
             $(document.getElementById("footer")).load("../Main/Footer.html");
         });
 
-        function login(){
-            var loginSuccessed = false;
-            $.getJSON("../Data/User.json", function(data) {
-                
-                for(key in data){
-                    console.log("id :"+data[key].id+" ,passwd :"+data[key].passwd);
-                    var id = data[key].id;
-                    var passwd = data[key].passwd;
-                    if(id===document.getElementById("id").value && passwd ===document.getElementById("passwd").value){
-                        loginSuccessed = true;
+        function login() {
+            let loginSucceed = false;
+            $.getJSON("../Data/User.json", function (data) {
+
+                for (key in data) {
+                    console.log("id :" + data[key].id + " ,passwd :" + data[key].passwd);
+                    const id = data[key].id;
+                    const passwd = data[key].passwd;
+                    if (id === document.getElementById("id").value && passwd === document.getElementById("passwd").value) {
+                        loginSucceed = true;
+                        localStorage.setItem("id", id);
+                        localStorage.setItem("name", data[key].name);
+                        location.replace("../Main/Home.html");
                         break;
                     }
                 }
-                if(loginSuccessed){
-                    alert("로그인에 성공했습니다.");
-                }else{
-                    alert("아이디, 비밀번호가 일치하지 않습니다");
-                }
-                
+                if (!loginSucceed) alert("아이디나 비밀번호가 일치하지 않습니다");
+
             });
         }
     </script>
 </head>
 
 <body>
-<!--header 파일에서 작업-->
-<div id="header"></div>
-<div id="section">
-    <div class="title">LogIn</div>
-    <form method="post" action="javascript:login();">
+<div id="wrapper">
+    <!--header 파일에서 작업-->
+    <div id="header"></div>
+    <div id="section">
+        <div class="title">LogIn</div>
+        <form method="post" action="javascript:login();">
+            <table>
+                <tr>
+                    <td><input class="box" type="text" id="id" maxlength="10" placeholder=" 아이디"></td>
+                    <td rowspan="2"><input class="logINBtn" type="submit" id="login" value="로그인"></td>
+                </tr>
+                <tr>
+                    <td><input class="box" type="password" id="passwd" maxlength="15" placeholder=" 비밀번호"></td>
+                </tr>
+            </table>
+        </form>
         <table>
             <tr>
-                <td><input class="box" type="text" id="id" maxlength="10" placeholder=" 아이디"></td>
-                <td rowspan="2"><input class="logINBtn" type="submit" id = "login" value="로그인"></td>
-            </tr>
-            <tr>
-                <td><input class="box" type="password" id="passwd" maxlength="15" placeholder=" 비밀번호"></td>
+                <td><input class="btn" type="button" onclick="location.href='../User/FindID.html'" id="findID"
+                           value="아이디 찾기"></td>
+                <td><input class="btn" type="button" onclick="location.href='../User/FindPW.html'" id="findPW"
+                           value="비밀번호 찾기"></td>
             </tr>
         </table>
-    </form>
-    <table>
-        <tr>
-            <td><input class="btn" type="button" onclick="location.href='../User/FindID.html'" id="findID" value="아이디 찾기"></td>
-            <td><input class="btn" type="button" onclick="location.href='../User/FindPW.html'" id="findPW" value="비밀번호 찾기"></td>
-        </tr>
-    </table>
+    </div>
 </div>
 <!--footer 파일에서 작업-->
 <div id="footer"></div>

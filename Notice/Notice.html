@@ -79,25 +79,27 @@
     </script>
 </head>
 <body>
-<!--header 파일에서 작업-->
-<div id="header"></div>
-<div id="section">
-    <!--    <form id="form1" action="../Notice/Notice_read.js" method="post">-->
-    <!--        <input type=hidden id="no" name="no" value="">-->
-    <!--        <input type=hidden name="page" value="">-->
-    <!--        <input type=hidden name="searchColumn" value="">-->
-    <!--        <input type=hidden name="keyword" value="">-->
-    <!--    </form>-->
+<div id="wrapper">
+    <!--header 파일에서 작업-->
+    <div id="header"></div>
+    <div id="section">
+        <!--    <form id="form1" action="../Notice/Notice_read.js" method="post">-->
+        <!--        <input type=hidden id="no" name="no" value="">-->
+        <!--        <input type=hidden name="page" value="">-->
+        <!--        <input type=hidden name="searchColumn" value="">-->
+        <!--        <input type=hidden name="keyword" value="">-->
+        <!--    </form>-->
 
-    <div class="search">
-        <br>
-        <form id="form2" action="" method="post">
-            <input type=hidden id="page" name="page" value=""/>
-            <input class="inputBox" type="text" maxlength="50" value=""/>
-            <input class="btn" type="button" value="검색" onclick=""/>
-        </form>
+        <div class="search">
+            <br>
+            <form id="form2" action="" method="post">
+                <input type=hidden id="page" name="page" value=""/>
+                <input class="inputBox" type="text" maxlength="50" value=""/>
+                <input class="btn" type="button" value="검색" onclick=""/>
+            </form>
+        </div>
+        <div id="list"></div>
     </div>
-    <div id="list"></div>
 </div>
 <!--footer 파일에서 작업-->
 <div id="footer"></div>

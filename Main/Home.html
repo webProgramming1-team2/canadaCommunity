@@ -14,36 +14,38 @@
 </head>
 
 <body>
-<!--header 파일에서 작업-->
-<div id="header"></div>
-<div id="section">
-    <!--공지사항-->
-    <div class="notice">
-        <table width='50%'>
-            <tr height='40'>
-                <td width='*'></td>
-                <td width='500px'><br>
-                    <h3>공지사항</h3>
-                    <hr color="#c7d696"></td>
-            </tr>
-        </table>
-        <table width='50%'>
-        <tr height='40'>
-            <td width='*'></td>
-            <td width='500px'>
-                <table width='100%'>
-                    <tr height='40'>
-                        <td width='100%'><a style='color:black;margin-left:5px;' href=''></a></td>
-                    </tr>
-                </table>
-                <hr color='#D5D5D5'>
-            </td>
-        </tr>
-        </table>
-        <form id="noticeForm" action="../Notice/Notice_read.js" method="post">
-            <input type=hidden id="no" name="no" value=""> <input
-                type=hidden name="page" value="1"> <input type=hidden name="searchColumn" value="title"> <input type=hidden name="keyword" value="">
-        </form>
+<div id="wrapper">
+    <!--header 파일에서 작업-->
+    <div id="header"></div>
+    <div id="section">
+        <!--공지사항-->
+        <div class="notice">
+            <table>
+                <tr>
+                    <td><br>
+                        <h3>공지사항</h3>
+                        <hr color="#c7d696">
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <table width='100%'>
+                            <tr height='40'>
+                                <td width='100%'><a style='color:black;margin-left:5px;' href=''></a></td>
+                            </tr>
+                        </table>
+                        <hr color='#D5D5D5'>
+                    </td>
+                </tr>
+            </table>
+            <form id="noticeForm" action="../Notice/Notice_read.js" method="post">
+                <input type=hidden id="no" name="no" value=""> <input
+                    type=hidden name="page" value="1"> <input type=hidden name="searchColumn" value="title"> <input
+                    type=hidden name="keyword" value="">
+            </form>
+        </div>
     </div>
 </div>
 <!--footer 파일에서 작업-->

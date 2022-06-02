@@ -21,21 +21,23 @@ ul {
 }
 
 .hd {
-    height: 95px;
+    height: 140px;
     width: 100%;
     background-color: #feffeb;
 }
 .ad {
-    height: 50px;
-    position : absolute;
-    top: 0;
-    left : 35%;
-    margin-left : clac(50px/ -2);
+    height: 70px;
+    width: 600px;
+    position : relative;
+    display: inline;
+    top: 10px;
+    left : 500px;
 }
 .joinup {
     position:relative;
     top:7px;
-    margin-left: 1169px;
+    right: 260px;
+    float: right;
     font-size: 10px;
     z-index: 999;
     padding: 5px;
@@ -46,18 +48,22 @@ ul {
     color: black;
 }
 
-h1 a {
-    color: #c7d696;
+#Logo {
     float: left;
+    display: inline;
     position: relative;
     top: 10px;
     left: 260px;
     font-size: 40px;
 }
 
+h1 a{
+    color: darkred;
+}
+
 .menu {
     position: relative;
-    top: 5px;
+    top: 15px;
     left: 415px;
     font-size: 17px;
     width: 900px;
