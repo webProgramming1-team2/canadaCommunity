@@ -4,11 +4,17 @@
 <head>
     <meta charset="utf-8">
     <title>캐모아 - 회원가입</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="../User/Join.css">
     <script>
 
-        function fn_sendMember() {
+        
+    let xhttp = new XMLHttpRequest();
+    let tblStr = "<table>";
+    xhttp.open("GET", "../Data/User.json", true);
+    xhttp.send();
+
+    function fn_sendMember() {
 
         const form = document.form;
         const name = form.name.value;
@@ -56,18 +62,11 @@
             userData.gender = form.gender.value;
             
 
-                $.getJSON("User.json", function(data) {
-                    data.push(json);
-                    alert(json);
-                });
-                
+            $.getJSON("../Data/User.json", function(data) {
                 data.push(userData);
                 new saveJson(data).download();
-
-            // form.method = "post";
-            // form.action = "join_db.jsp";
-            // form.submit();
-            //submit으로 서버에 양식 제출
+                location.replace("../Main/Home.html");
+            });
         }
     }
     class saveJson {
@@ -101,39 +100,8 @@
 
         $("#list").html(tblStr);
     });
-    function btn_click() {
 
-            if (str == "submit") {
-            form.method = "get";
-            //폼의 메소드 방식
-            form.action = "join_fail.jsp";
-            //데이터를 보낼 곳을 action으로 지정
-            form.target = "param";
-            // 프레임이름?
-
-            }
-        }
-      
-
-        function btn_click() {
-   
-                if (str == "submit") {
-                form.method = "get";
-                //폼의 메소드 방식
-                form.action = "join_fail.jsp";
-                //데이터를 보낼 곳을 action으로 지정
-                form.target = "param";
-                // 프레임이름?
-
-                }
-        }
-
-        $(document).ready(function () {
-            $(document.getElementById("header")).load("../Main/Header.html");
-            $(document.getElementById("footer")).load("../Main/Footer.html");
-        });
-
-    </script>
+</script>
 </head>
 
 <body>

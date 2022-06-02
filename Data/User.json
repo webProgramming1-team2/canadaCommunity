@@ -12,5 +12,12 @@
     "passwd": "qaw",
     "phoneNum": "010-333-221",
     "gender": "Female"
+  },
+  {
+    "name": "seo",
+    "id": "psycsh",
+    "passwd": "1234",
+    "phone_num": "010-1234-1234",
+    "gender": "female"
   }
 ]
