@@ -56,13 +56,13 @@
             let userData = {};
             userData.name = form.name.value;
             userData.id = form.id.value;
-            userData.passwd = form.id.value;
+            userData.passwd = form.passwd.value;
             userData.phone_num = form.fst_num.value + "-" + form.scd_num.value
             + "-" + form.trd_num.value;
             userData.gender = form.gender.value;
             
 
-            $.getJSON("User.json", function(data) {
+            $.getJSON("../Data/User.json", function(data) {
                 data.push(userData);
                 new saveJson(data).download();
                 location.replace("../Main/Home.html");
