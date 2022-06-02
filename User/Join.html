@@ -64,10 +64,6 @@
                 data.push(userData);
                 new saveJson(data).download();
 
-            // form.method = "post";
-            // form.action = "join_db.jsp";
-            // form.submit();
-            //submit으로 서버에 양식 제출
         }
     }
     class saveJson {
@@ -101,32 +97,6 @@
 
         $("#list").html(tblStr);
     });
-    function btn_click() {
-
-            if (str == "submit") {
-            form.method = "get";
-            //폼의 메소드 방식
-            form.action = "join_fail.jsp";
-            //데이터를 보낼 곳을 action으로 지정
-            form.target = "param";
-            // 프레임이름?
-
-            }
-        }
-      
-
-        function btn_click() {
-   
-                if (str == "submit") {
-                form.method = "get";
-                //폼의 메소드 방식
-                form.action = "join_fail.jsp";
-                //데이터를 보낼 곳을 action으로 지정
-                form.target = "param";
-                // 프레임이름?
-
-                }
-        }
 
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
