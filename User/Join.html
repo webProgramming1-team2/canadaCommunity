@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../User/Join.css">
     <script>
 
-        
+
     let xhttp = new XMLHttpRequest();
     let tblStr = "<table>";
     xhttp.open("GET", "../Data/User.json", true);
@@ -62,7 +62,7 @@
             userData.gender = form.gender.value;
             
 
-            $.getJSON("../Data/User.json", function(data) {
+            $.getJSON("User.json", function(data) {
                 data.push(userData);
                 new saveJson(data).download();
                 location.replace("../Main/Home.html");
@@ -101,7 +101,7 @@
         $("#list").html(tblStr);
     });
 
-</script>
+    </script>
 </head>
 
 <body>
