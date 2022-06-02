@@ -56,17 +56,17 @@ a {
 }
 
 .title {
-    width: 65%;
+    width: 70%;
 }
 
 .date {
     width: 10%;
 }
 
-.nickname {
+.writer {
     width: 10%;
 }
 
 .viewNum {
-    width: 10%;
+    width: 5%;
 }

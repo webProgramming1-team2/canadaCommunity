@@ -47,16 +47,24 @@ a {
 
 .num {
     width: 5%;
+    text-align: center;
 }
 
 .title {
-    width: 75%;
+    width: 70%;
 }
 
 .date {
     width: 10%;
+    text-align: center;
+}
+
+.writer {
+    width: 10%;
+    text-align: center;
 }
 
 .viewNum {
-    width: 10%;
+    width: 5%;
+    text-align: center;
 }
