@@ -4,12 +4,41 @@
     <meta charset="utf-8">
     <title>캐모아 - 아이디 찾기</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../Data/User.json" type="text/javascript"></script>
     <link rel="stylesheet" href="../User/FindID.css">
     <script>
+        var id;
+        var findSuccessed = false;
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
             $(document.getElementById("footer")).load("../Main/Footer.html");
         });
+
+        function findId() {
+            
+            $.getJSON("../Data/User.json", function(data) {
+                
+                for(key in data){
+                    var name = data[key].name;
+                    var phone_num = data[key].phoneNum;
+                    if(name===document.getElementById("name").value && phone_num ===
+                    document.getElementById("fst_num").value + "-" 
+                    +document.getElementById("scd_num").value + "-" 
+                    +document.getElementById("trd_num").value){
+                        id = data[key].id;
+                        findSuccessed = true;
+                        break;
+                    }
+                    
+                }
+                if(findSuccessed){
+                    alert("아이디는 " + id + " 입니다.");
+                }else{
+                    alert("아이디를 찾을 수 없습니다.");
+                }
+                
+            });
+        }
     </script>
 </head>
 
@@ -18,22 +47,36 @@
 <div id="header"></div>
 <!--나중에 내용 넣기-->
 <div id="section">
-    <div class="title">아이디 찾기</div>
-    <form method="post" action="">
+ <form name="form" id="form" >
         <table>
             <tr>
-                <td><input class="box" type="text" name="FindID" maxlength="4" placeholder="이름"></td>
+                <td class="line" colspan="2">아이디 찾기</td>
             </tr>
             <tr>
-                <td><input class="box" type="text" name="email" maxlength="30" placeholder=" 이메일"></td>
-            </tr>
-            <tr>
-                <td><input class="s_btn" type="submit" value="아이디 찾기"></td>
+                <th>이름</th>
+                <td><input class="box" type="text" name="name" id="name"></td>
             </tr>
 
 
+            <tr>
+                <th>연락처</th>
+                <td><select name="fst_num" id="fst_num">
+                    <option value="">--선택--</option>
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="02">02</option>
+                    <option value="031">031</option>
+                    <option value="070">070</option>
+                </select> - <input class="box" type="text" name="scd_num" size=5 maxlength="4" id="scd_num"> -
+                    <input class="box" type="text" name="trd_num" size=5 maxlength="4" id="trd_num"></td>
+            </tr>
+
+
+            <tr>
+                <td colspan="3"><input class="s_btn" type="submit" value="아이디 찾기" onclick="findId()"></td>
+            </tr>
         </table>
-
     </form>
 
     <div class="links">
