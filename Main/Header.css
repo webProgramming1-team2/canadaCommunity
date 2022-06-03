@@ -46,6 +46,7 @@ ul {
 .joinup li a {
     padding: 5px;
     color: black;
+    cursor: pointer;
 }
 
 #Logo {

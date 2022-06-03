@@ -73,7 +73,7 @@
             $(document.getElementById("footer")).load("../Main/Footer.html");
 
             $("#list").html(tblStr);
-            new saveJson(noticeList).download();
+            // new saveJson(noticeList).download();
         });
 
     </script>
@@ -91,12 +91,14 @@
         <!--    </form>-->
 
         <div class="search">
-            <br>
-            <form id="form2" action="" method="post">
+            <form id="form" action="" method="post">
                 <input type=hidden id="page" name="page" value=""/>
                 <input class="inputBox" type="text" maxlength="50" value=""/>
                 <input class="btn" type="button" value="검색" onclick=""/>
             </form>
+        </div>
+        <div class="writeBtn">
+            <button class="btn" onclick="location.href='../Notice/WriteNotice.html'">글쓰기</button>
         </div>
         <div id="list"></div>
     </div>

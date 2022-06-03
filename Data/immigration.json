@@ -4,13 +4,17 @@
     "title": "첫번째 공지사항",
     "date": "2022-05-30",
     "writer": "관리자",
-    "viewNum": 0
+    "viewNum": 0,
+    "recommend": 0,
+    "report": 0
   },
   {
     "num": 2,
     "title": "두번째 공지사항",
     "date": "2022-05-31",
     "writer": "관리자",
-    "viewNum": 1
+    "viewNum": 1,
+    "recommend": 0,
+    "report": 0
   }
 ]

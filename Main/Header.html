@@ -6,7 +6,22 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="../Main/Header.css">
 </head>
+<script>
+    $(document).ready(function () {
+        if (localStorage.getItem("id") === null) {
+            $("#myPageBtn").css("display", "none");
+            $("#logOutBtn").css("display", "none");
+        } else {
+            $("#logInBtn").css("display", "none");
+            $("#joinBtn").css("display", "none");
+        }
+    });
 
+    function logOut() {
+        localStorage.clear();
+        location.replace("../Main/Home.html");
+    }
+</script>
 <body>
 <div class="hd">
     <h1 id="Logo">
@@ -15,8 +30,10 @@
 
     <div class="joinup">
         <ul>
-            <li><a href="../User/LogIn.html">로그인</a></li>
-            <li><a href="../User/Join.html">회원가입</a></li>
+            <li id="logInBtn"><a href="../User/LogIn.html">로그인</a></li>
+            <li id="joinBtn"><a href="../User/Join.html">회원가입</a></li>
+            <li id="myPageBtn"><a href="../User/MyPage.html">마이페이지</a></li>
+            <li id="logOutBtn"><a onclick="logOut()">로그아웃</a></li>
         </ul>
     </div>
 
