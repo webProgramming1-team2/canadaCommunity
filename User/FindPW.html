@@ -1,24 +1,87 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>캐모아 - 비밀번호 찾기</title>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <link rel="stylesheet" href="../User/FindPW.css">
-    <script>
-        $(document).ready(function () {
-            $(document.getElementById("header")).load("../Main/Header.html");
-            $(document.getElementById("footer")).load("../Main/Footer.html");
-        });
-    </script>
-</head>
-
-<body>
-<!--header 파일에서 작업-->
-<div id="header"></div>
-<!--나중에 내용 넣기-->
-<div id="section"></div>
-<!--footer 파일에서 작업-->
-<div id="footer"></div>
-</body>
-</html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>캐모아 - 비밀번호 찾기</title>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script src="../Data/User.json" type="text/javascript"></script>
+        <link rel="stylesheet" href="../User/FindPW.css">
+        <script>
+            var passwd;
+            var findSuccessed = false;
+            $(document).ready(function () {
+                $(document.getElementById("header")).load("../Main/Header.html");
+                $(document.getElementById("footer")).load("../Main/Footer.html");
+            });
+    
+            function findPW() {
+                
+                $.getJSON("../Data/User.json", function(data) {
+                    
+                    for(key in data){
+                        var name = data[key].name;
+                        var phone_num = data[key].phoneNum;
+                        var id = data[key].id;
+                        if(name===document.getElementById("name").value && phone_num ===
+                        document.getElementById("fst_num").value + "-" 
+                        +document.getElementById("scd_num").value + "-" 
+                        +document.getElementById("trd_num").value &&
+                        id === document.getElementById("id").value){
+                            passwd = data[key].passwd;
+                            findSuccessed = true;
+                            break;
+                        }
+                        
+                    }
+                    if(findSuccessed){
+                        alert("비밀번호는 " + passwd + " 입니다.");
+                    }else{
+                        alert("비밀번호를 찾을 수 없습니다.");
+                    }
+                    
+                });
+            }
+        </script>
+    </head>
+    
+    <body>
+    <!--header 파일에서 작업-->
+    <div id="header"></div>
+    <!--나중에 내용 넣기-->
+    <div id="section">
+     <form name="form" id="form" >
+            <table>
+                <tr>
+                    <td class="line" colspan="3">FIND PASSWORD</td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td><input class="box" type="text" name="name" id="name"></td>
+                    <td rowspan="3"><input class="findPWBtn" type="submit" value="비밀번호 찾기" onclick="findPW()"></td>
+                </tr>
+                <tr>
+                    <th>아이디</th>
+                    <td><input class="box" type="text" name="id" id="id"></td>
+                </tr>
+                <tr>
+                    <th>연락처</th>
+                    <td><select class="select" name="fst_num" id="fst_num">
+                        <option value="">--선택--</option>
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="02">02</option>
+                        <option value="031">031</option>
+                        <option value="070">070</option>
+                    </select> - <input class="box1" type="text" name="scd_num" size=5 maxlength="4" id="scd_num"> -
+                        <input class="box1" type="text" name="trd_num" size=5 maxlength="4" id="trd_num"></td>
+                </tr>
+    
+    
+            </table>
+        </form>
+    </div>
+    <!--footer 파일에서 작업-->
+    <div id="footer"></div>
+    </body>
+    </html>

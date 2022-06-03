@@ -29,7 +29,6 @@
                         findSuccessed = true;
                         break;
                     }
-                    
                 }
                 if(findSuccessed){
                     alert("아이디는 " + id + " 입니다.");
@@ -50,17 +49,19 @@
  <form name="form" id="form" >
         <table>
             <tr>
-                <td class="line" colspan="2">아이디 찾기</td>
+                <td class="line" colspan="3">FIND ID</td>
             </tr>
             <tr>
                 <th>이름</th>
                 <td><input class="box" type="text" name="name" id="name"></td>
+
+                <td rowspan="2"><input class="findIDBtn" type="submit" id="login" value="아이디 찾기" onclick="findId()"></td>
             </tr>
 
 
             <tr>
                 <th>연락처</th>
-                <td><select name="fst_num" id="fst_num">
+                <td><select class="select" name="fst_num" id="fst_num">
                     <option value="">--선택--</option>
                     <option value="010">010</option>
                     <option value="011">011</option>
@@ -68,24 +69,15 @@
                     <option value="02">02</option>
                     <option value="031">031</option>
                     <option value="070">070</option>
-                </select> - <input class="box" type="text" name="scd_num" size=5 maxlength="4" id="scd_num"> -
-                    <input class="box" type="text" name="trd_num" size=5 maxlength="4" id="trd_num"></td>
+                </select> - <input class="box1" type="text" name="scd_num" size=5 maxlength="4" id="scd_num"> -
+                    <input class="box1" type="text" name="trd_num" size=5 maxlength="4" id="trd_num"></td>
             </tr>
 
 
-            <tr>
-                <td colspan="3"><input class="s_btn" type="submit" value="아이디 찾기" onclick="findId()"></td>
-            </tr>
+            
         </table>
     </form>
 
-    <div class="links">
-        <input class="s_btn2" onclick="location.href='../User/FindPW.html'" type="submit" value="비밀번호 찾기">
-        <span> | </span>
-        <input class="s_btn2" onclick="location.href='../User/FindPW.html'" type="submit" value="로그인">
-        <span> | </span>
-        <input class="s_btn2" onclick="location.href='../User/FindPW.html'" type="submit" value="회원가입">
-    </div>
 </div>
 <!--footer 파일에서 작업-->
 <div id="footer"></div>
