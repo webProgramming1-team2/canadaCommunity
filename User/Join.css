@@ -15,12 +15,6 @@ body {
     flex-direction: column;
 }
 
-#section {
-    flex: 1;
-    margin-bottom:30px;
-    margin-top:30px;
-}
-
 table {
     text-align: left;
     margin: 0 auto;
@@ -51,6 +45,7 @@ select {
 .title {
     text-align: center;
     font-size: 40px;
+    margin-top: 30px;
 }
 
 .s_btn {
@@ -65,9 +60,4 @@ select {
 
 .box {
     height: 25px;
-}
-
-#footer{
-    position: relative;
-    transform: translateY(-100%);
 }

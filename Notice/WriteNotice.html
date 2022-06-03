@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>캐모아 - 공지사항</title>
+    <title>캐모아 - 공지사항 작성</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <link rel="stylesheet" href="../Notice/Notice.css">
+    <link rel="stylesheet" href="../Notice/WriteNotice.css">
     <script>
         class saveJson {
             // 클래스 생성자 초기화 실시
@@ -52,7 +52,7 @@
             $(document.getElementById("header")).load("../Main/Header.html");
             $(document.getElementById("footer")).load("../Main/Footer.html");
 
-            new saveJson(noticeList).download();
+            // new saveJson(noticeList).download();
         });
 
     </script>
@@ -64,91 +64,27 @@
     <div id="section">
         <form action="Protecting_request.jsp" enctype="multipart/form-data"
               method="post">
-            <div id="notice">
+            <div id="pageTitle">
                 공지사항 등록
-                <hr style="margin-top: 15px;" width="100%" color=#c7d696>
+<!--                <hr>-->
             </div>
             <table>
                 <tr>
-                    <th>• 품종</th>
-                    <td><select name="variety" onchange="categoryChange(this)">
-                        <option value="">선택</option>
-                        <option name="개" value="개">개</option>
-                        <option name="고양이" value="고양이">고양이</option>
-                        <option name="기타" value="기타">기타</option>
-                    </select> <select id="good" name="variety1">
-                        <option>선택</option>
-                    </select></td>
+                    <th>제목</th>
+                    <td><input id="title" class="inputBox" type="text" value=""></td>
                 </tr>
                 <tr>
-                    <th>• 성별</th>
-                    <td>
-                        <div>
-                            <input type="hidden" name="sex1" id="sex1" value=""> <input
-                                type="checkbox" name="sex" value="수컷"
-                                onclick="oneCheckbox(this)"> 수컷 <input type="checkbox"
-                                                                       name="sex" value="암컷"
-                                                                       onclick="oneCheckbox(this)"> 암컷
-                        </div>
-                    </td>
+                    <th>내용</th>
+                    <td><input id="content" class="inputBox" type="text" value=""></td>
                 </tr>
                 <tr>
-                    <th>• 추정 나이</th>
-                    <td><input type="text" name="old" value=""></input></td>
-                </tr>
-                <tr>
-                    <th>• 발견 장소</th>
-                    <td><select name="place" onchange="categoryChange(this)">
-                        <option value="">전체</option>
-                        <option value="서울특별시">서울시</option>
-                        <option value="인천광역시">인천시</option>
-                        <option value="대구광역시">대구시</option>
-                        <option value="대전광역시">대전시</option>
-                        <option value="광주광역시">광주시</option>
-                        <option value="부산광역시">부산시</option>
-                        <option value="울산광역시">울산시</option>
-                        <option value="세종특별시">세종시</option>
-                        <option value="경기도">경기도</option>
-                        <option value="강원도">강원도</option>
-                        <option value="충청북도">충청북도</option>
-                        <option value="충청남도">충청남도</option>
-                        <option value="전라북도">전라북도</option>
-                        <option value="전라남도">전라남도</option>
-                        <option value="경상북도">경상북도</option>
-                        <option value="경상남도">경상남도</option>
-                        <option value="제주도">제주도</option>
-                    </select> <select id="place2" name="place2">
-                        <option>선택</option>
-                    </select> <input type="text" name="place1" placeholder="상세한 장소를 입력하세요."
-                                     style="width: 200px;"></input></td>
-                </tr>
-
-                <tr>
-                    <th>• 보호 시작 날짜</th>
-                    <td><input type="text" name="day" value=""
-                               placeholder=" ex)1999-12-31"
-                               onkeyup="this.value = date_mask(this.value)"></input></td>
-                </tr>
-                <tr>
-                    <th>• 특징</th>
-                    <td><input type="text" name="feature" value=""
-                               style="width: 800px; height: 150px;"></input></td>
-                </tr>
-                <tr>
-                    <th>• 문의전화</th>
-                    <td><input type="text" name="call" value=""
-                               style="width: 200px;" onkeyup="this.value = call_mask(this.value)"></input>
-                    </td>
-                </tr>
-                <tr>
-                    <th>• 사진 업로드</th>
-                    <td><input type="file" name="image" id="imageFileOpenInput"
-                               accept="image/*"></td>
+                    <th>사진 업로드</th>
+                    <td class="left"><input type="file" id="image" accept="image/*"></td>
                 </tr>
             </table>
             <div class="button">
                 <button type="submit">등록</button>
-                <button type="button" onclick="location.href='Protecting_board.jsp'">취소</button>
+                <button type="button" onclick="location.href=''">취소</button>
             </div>
         </form>
     </div>
