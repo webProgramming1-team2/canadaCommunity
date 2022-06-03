@@ -69,7 +69,6 @@ hr {
 }
 
 button {
-    /*float: left;*/
     border: 0;
     background: #c7d696;
     margin-left: 5px;
@@ -80,6 +79,10 @@ button {
 }
 
 .button {
+    display: flex; /* 크기를 바꿔서라도 한줄에 우겨넣음 */
+    flex-direction: row; /* 가로줄(row) or 세로줄(colmun) */
+    flex-wrap: wrap; /* 크기변형X 한줄 넘으면 다음줄*/
+    justify-content: flex-end;
     width: 110px;
     margin: 15px auto;
 }
