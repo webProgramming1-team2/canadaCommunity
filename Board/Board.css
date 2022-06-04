@@ -33,17 +33,6 @@ a {
     color: black;
 }
 
-#wrapper{
-    height: auto;
-    min-height: 100%;
-}
-
-#section {
-    width: 58%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .btn {
     border-radius: 5px;
     border: 2px solid #c7d696;
@@ -74,9 +63,4 @@ a {
 
 .viewNum {
     width: 5%;
-}
-
-#footer{
-    position: relative;
-    transform: translateY(-100%);
 }

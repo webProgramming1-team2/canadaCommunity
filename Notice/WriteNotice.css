@@ -10,77 +10,79 @@ html, body {
     height: 100%;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-}th {
-     border-bottom: 2px solid #c7d696;
-     background: white;
-     text-align: left;
-     font-size: 17px;
-     color: black;
- }
-
-td {
-    border-bottom: 2px solid #c7d696;
-    text-align: left;
-    font-size: 15px;
-    color: black;
-}
-
-#notice {
-    margin-left: 150px;
-    font-size: 30px;
-    position:relative;
-    left:110px;
-    width:65.5%;
-}
+/*body {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
 
 table {
-    width: 66%;
-    height: 600px;
+    width: 100%;
     margin: auto;
     text-align: center;
     border: solid 1px #c7d696;
 }
 
-button {
+th {
+    width: 10%;
+    border-bottom: 2px solid #c7d696;
+    background: white;
+    text-align: center;
+    font-size: 17px;
+    color: black;
+}
 
-    float: left;
+td {
+    border-bottom: 2px solid #c7d696;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+
+#pageTitle {
+    font-size: 30px;
+    margin: 10px;
+}
+
+hr {
+    margin-top: 15px;
+    border-color: #c7d696;
+}
+
+.inputBox {
+    width: 98%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#content{
+    height: 500px;
+}
+
+.left{
+    text-align: left;
+}
+
+#image{
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button {
     border: 0;
     background: #c7d696;
-    margin-left:5px;
-    cursor:pointer;
+    margin-left: 5px;
+    cursor: pointer;
     border-radius: 5px;
-    width:50px;
-    padding:2px;
+    width: 50px;
+    padding: 2px;
 }
 
-.button{
-    position:relative;
-    left:700px;
-    width:110px;
-    margin-top:15px;
-}
-
-/*#h1 {*/
-/*    font-size: 15px;*/
-/*    margin-right: 100px;*/
-/*    float: right;*/
-/*}*/
-
-#wrapper{
-    height: auto;
-    min-height: 100%;
-}
-
-#section {
-    width: 58%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#footer{
-    position: relative;
-    transform: translateY(-100%);
+.button {
+    display: flex; /* 크기를 바꿔서라도 한줄에 우겨넣음 */
+    flex-direction: row; /* 가로줄(row) or 세로줄(colmun) */
+    flex-wrap: wrap; /* 크기변형X 한줄 넘으면 다음줄*/
+    justify-content: flex-end;
+    width: 110px;
+    margin: 15px auto;
 }

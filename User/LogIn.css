@@ -15,21 +15,10 @@ body {
     flex-direction: column;
 }
 
-#wrapper{
-    height: auto;
-    min-height: 100%;
-}
-
-#section {
-    flex: 1;
-    margin: auto auto;
-}
-
 table {
     text-align: left;
     border:0;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 td {
@@ -68,9 +57,4 @@ td {
 .box {
     height: 40px;
     width: 300px;
-}
-
-#footer{
-    position: relative;
-    transform: translateY(-100%);
 }
