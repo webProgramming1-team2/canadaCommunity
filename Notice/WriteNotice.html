@@ -45,7 +45,7 @@
                 readJson(xhttp.responseText);
             }
         }
-        xhttp.open("GET", "../Data/notice.json", true);
+        xhttp.open("GET", "../Data/Notice.json", true);
         xhttp.send();
 
         function writePost() {
@@ -65,7 +65,7 @@
 
             const date= new Date();
             let year = date.getFullYear();
-            let month = date.getMonth();
+            let month = date.getMonth()+1;
             let day = date.getDate();
             if(month<10) month="0"+month;
             if(day<10) day="0"+day;
@@ -80,9 +80,9 @@
             post.content = content;
             post.image = imageFile;
 
-            $.getJSON("../Data/notice.json", function (data) {
+            $.getJSON("../Data/Notice.json", function (data) {
                 data.push(post);
-                new saveJson(data).download("application/json","notice.json");
+                new saveJson(data).download("application/json","Notice.json");
                 location.replace("../Notice/Notice.html");
             });
         }
@@ -90,7 +90,14 @@
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
             $(document.getElementById("footer")).load("../Main/Footer.html");
+            // 엔터 입력 방지
+            document.getElementById("title").addEventListener('keydown', function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                }
+            }, true);
         });
+
 
     </script>
 </head>
@@ -106,11 +113,11 @@
             <table>
                 <tr>
                     <th>제목</th>
-                    <td><input id="title" name="title" class="inputBox" type="text" value=""></td>
+                    <td><input id="title" name="title" class="inputBox" type="text" autocomplete='off'></td>
                 </tr>
                 <tr>
                     <th>내용</th>
-                    <td><input id="content" name="content" class="inputBox" type="text" value=""></td>
+                    <td><textarea id="content" name="content" class="inputBox" autocomplete='off'></textarea></td>
                 </tr>
                 <tr>
                     <th>사진 업로드</th>

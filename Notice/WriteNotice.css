@@ -10,11 +10,6 @@ html, body {
     height: 100%;
 }
 
-/*body {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*}*/
-
 table {
     width: 100%;
     margin: auto;
@@ -40,7 +35,7 @@ td {
 
 #pageTitle {
     font-size: 30px;
-    margin: 10px;
+    margin: 20px 0;
 }
 
 hr {
@@ -50,12 +45,15 @@ hr {
 
 .inputBox {
     width: 98%;
+    height: 40px;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: 20px;
 }
 
 #content{
-    height: 500px;
+    height: 600px;
+    resize: none;
 }
 
 .left{

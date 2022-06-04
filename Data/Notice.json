@@ -1,0 +1,20 @@
+[
+  {
+    "num": 1,
+    "title": "첫번째 공지사항",
+    "date": "2022-05-30",
+    "writer": "관리자",
+    "viewNum": 0,
+    "content": "안녕하세요",
+    "image": null
+  },
+  {
+    "num": 2,
+    "title": "두번째 공지사항",
+    "date": "2022-05-31",
+    "writer": "관리자",
+    "viewNum": 1,
+    "content": "안녕하세요",
+    "image": null
+  }
+]

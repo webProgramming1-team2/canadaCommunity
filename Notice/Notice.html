@@ -15,7 +15,7 @@
                 readJson(xhttp.responseText);
             }
         }
-        xhttp.open("GET", "../Data/notice.json", true);
+        xhttp.open("GET", "../Data/Notice.json", true);
         xhttp.send();
 
         class saveJson {
@@ -25,7 +25,7 @@
             }
 
             // 파일 다운로드 수행 실시
-            download(type_of = "application/json", filename = "notice.json") { // 확장자명을 json 으로 지정
+            download(type_of = "application/json", filename = "Notice.json") { // 확장자명을 json 으로 지정
 
                 let txt = [];
                 txt.push(JSON.stringify(this.data, null, 2));
@@ -56,24 +56,23 @@
             tblStr += "<th class=\"viewNum\"><b>조회수</b></th>";
             tblStr += "</tr>";
 
-            for (const notice of noticeList) {
+            for (let i = noticeList.length-1; i >=0; i--) {
                 tblStr += "<tr>";
-                tblStr += "<td class=\"num\"><b>" + notice["num"] + "</b></td>";
-                tblStr += "<td class=\"title\"><b><a href=\'" + notice["num"] + "\'>" + notice["title"] + "</b></td>";
-                tblStr += "<td class=\"date\"><b>" + notice["date"] + "</b></td>";
-                tblStr += "<td class=\"writer\"><b>" + notice["writer"] + "</b></td>";
-                tblStr += "<td class=\"viewNum\"><b>" + notice["viewNum"] + "</b></td>";
+                tblStr += "<td class=\"num\"><b>" + noticeList[i]["num"] + "</b></td>";
+                tblStr += "<td class=\"title\"><b><a href=\'" + noticeList[i]["num"] + "\'>" + noticeList[i]["title"] + "</b></td>";
+                tblStr += "<td class=\"date\"><b>" + noticeList[i]["date"] + "</b></td>";
+                tblStr += "<td class=\"writer\"><b>" + noticeList[i]["writer"] + "</b></td>";
+                tblStr += "<td class=\"viewNum\"><b>" + noticeList[i]["viewNum"] + "</b></td>";
                 tblStr += "</tr>";
             }
+
             tblStr += "</table>";
         }
 
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
             $(document.getElementById("footer")).load("../Main/Footer.html");
-
             $("#list").html(tblStr);
-            // new saveJson(noticeList).download();
         });
 
     </script>
@@ -83,12 +82,15 @@
     <!--header 파일에서 작업-->
     <div id="header"></div>
     <div id="section">
-        <!--    <form id="form1" action="../Notice/Notice_read.js" method="post">-->
-        <!--        <input type=hidden id="no" name="no" value="">-->
-        <!--        <input type=hidden name="page" value="">-->
-        <!--        <input type=hidden name="searchColumn" value="">-->
-        <!--        <input type=hidden name="keyword" value="">-->
-        <!--    </form>-->
+        <div id="pageTitle">
+            공지사항
+        </div>
+<!--            <form id="form1" action="../Notice/Notice_read.js" method="post">-->
+<!--                <input type=hidden id="no" name="no" value="">-->
+<!--                <input type=hidden name="page" value="">-->
+<!--                <input type=hidden name="searchColumn" value="">-->
+<!--                <input type=hidden name="keyword" value="">-->
+<!--            </form>-->
 
         <div class="search">
             <form id="form" action="" method="post">
