@@ -57,12 +57,12 @@ select {
     background: #c7d696;
     border: 0;
     border-radius: 5px;
-    width: 80px;
-    height: 25px;
+    width: 200px;
+    height: 35px;
     font-size: 14px;
-    cursor: pointer;
+    margin-top: 10px;
+    cursor:pointer;
 }
-
 .box {
     height: 25px;
 }

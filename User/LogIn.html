@@ -22,7 +22,7 @@
                     const passwd = data[key].passwd;
                     if (id === document.getElementById("id").value && passwd === document.getElementById("passwd").value) {
                         loginSucceed = true;
-                        localStorage.setItem("id", id);
+                        localStorage.setItem("id", data[key].id);
                         localStorage.setItem("name", data[key].name);
                         location.replace("../Main/Home.html");
                         break;
