@@ -6,9 +6,13 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="../User/MyPage.css">
     <script>
+        
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
             $(document.getElementById("footer")).load("../Main/Footer.html");
+
+            $('input[name=name]').attr('value',localStorage.getItem("name"));
+            $('input[name=id]').attr('value',localStorage.getItem("id"));
         });
     </script>
 </head>
@@ -27,15 +31,15 @@
                 </tr>
                 <tr>
                     <th>이름<br>(닉네임)</th>
-                    <td><input class="box" type="text" name="name"></td>
+                    <td><input class="box" type="text" name="name" value = ""></td>
                 </tr>
                 <tr>
                     <th>아이디</th>
-                    <td><input disabled class="box" type="text" name="id"></td>
+                    <td><input disabled class="box" type="text" name="id" value = ""/></td>
                 </tr>
                 <tr>
                     <th>비밀번호</th>
-                    <td><input class="box" type="password" name="passwd"></td>
+                    <td><input class="box" type="text" name="passwd" value = ""></td>
                 </tr>
                 <tr>
                     <th>비밀번호확인</th>

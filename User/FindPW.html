@@ -17,7 +17,6 @@
             function findPW() {
                 
                 $.getJSON("../Data/User.json", function(data) {
-                    
                     for(key in data){
                         var name = data[key].name;
                         var phone_num = data[key].phoneNum;
@@ -31,14 +30,12 @@
                             findSuccessed = true;
                             break;
                         }
-                        
                     }
                     if(findSuccessed){
                         alert("비밀번호는 " + passwd + " 입니다.");
                     }else{
                         alert("비밀번호를 찾을 수 없습니다.");
                     }
-                    
                 });
             }
         </script>
