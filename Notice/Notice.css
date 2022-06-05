@@ -4,7 +4,7 @@ html, body {
 
 #pageTitle {
     font-size: 30px;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 table {
@@ -32,12 +32,6 @@ a {
     display: inline;
 }
 
-#form{
-    float: left;
-    display: inline;
-    margin: 10px 0;
-}
-
 .writeBtn{
     float: right;
     display: inline;
@@ -51,9 +45,11 @@ a {
     font-size: 13px;
     cursor: pointer;
     width: 50px;
+    height: 30px;
 }
 
 .inputBox {
+    height: 30px;
 }
 
 #list{

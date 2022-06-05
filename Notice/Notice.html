@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="../Notice/Notice.css">
     <script>
-        let noticeList = [];
+        let list = [];
         let tblStr = "<table>";
         let xhttp = new XMLHttpRequest();
 
@@ -22,7 +22,7 @@
             let json = JSON.parse(jsonText); // String -> json으로 변환
 
             for (let i = 0; i < json.length; i++) {
-                noticeList.push(json[i]);
+                list.push(json[i]);
             }
 
             tblStr += "<tr>";
@@ -33,17 +33,29 @@
             tblStr += "<th class=\"viewNum\"><b>조회수</b></th>";
             tblStr += "</tr>";
 
-            for (let i = noticeList.length-1; i >=0; i--) {
-                tblStr += "<tr>";
-                tblStr += "<td class=\"num\"><b>" + noticeList[i]["num"] + "</b></td>";
-                tblStr += "<td class=\"title\"><b><a href=\'" + noticeList[i]["num"] + "\'>" + noticeList[i]["title"] + "</b></td>";
-                tblStr += "<td class=\"date\"><b>" + noticeList[i]["date"] + "</b></td>";
-                tblStr += "<td class=\"writer\"><b>" + noticeList[i]["writer"] + "</b></td>";
-                tblStr += "<td class=\"viewNum\"><b>" + noticeList[i]["viewNum"] + "</b></td>";
+            for (let i = list.length-1; i >=0; i--) {
+                tblStr += "<tr class='row'>";
+                tblStr += "<td class=\"num\"><b>" + list[i]["num"] + "</b></td>";
+                tblStr += "<td class=\"title\"><b><a href=\'" + list[i]["num"] + "\'>" + list[i]["title"] + "</b></td>";
+                tblStr += "<td class=\"date\"><b>" + list[i]["date"] + "</b></td>";
+                tblStr += "<td class=\"writer\"><b>" + list[i]["writer"] + "</b></td>";
+                tblStr += "<td class=\"viewNum\"><b>" + list[i]["viewNum"] + "</b></td>";
                 tblStr += "</tr>";
             }
 
             tblStr += "</table>";
+        }
+
+        function search(){
+            const keyword=$(".inputBox").val();
+            const item=document.getElementsByClassName("row");
+
+            for(let i=0;i<item.length;i++){
+                let title=item[i].getElementsByClassName("title");
+                if(title[0].innerHTML.indexOf(keyword)>-1){
+                    item[i].style.display="";
+                }else item[i].style.display="none";
+            }
         }
 
         $(document).ready(function () {
@@ -62,19 +74,9 @@
         <div id="pageTitle">
             공지사항
         </div>
-<!--            <form id="form1" action="../Notice/Notice_read.js" method="post">-->
-<!--                <input type=hidden id="no" name="no" value="">-->
-<!--                <input type=hidden name="page" value="">-->
-<!--                <input type=hidden name="searchColumn" value="">-->
-<!--                <input type=hidden name="keyword" value="">-->
-<!--            </form>-->
-
         <div class="search">
-            <form id="form" action="" method="post">
-                <input type=hidden id="page" name="page" value=""/>
-                <input class="inputBox" type="text" maxlength="50" value=""/>
-                <input class="btn" type="button" value="검색" onclick=""/>
-            </form>
+            <input class="inputBox" type="text" maxlength="50"/>
+            <input class="btn" type="button" value="검색" onclick="search()"/>
         </div>
         <div class="writeBtn">
             <button class="btn" onclick="location.href='../Notice/WriteNotice.html'">글쓰기</button>
