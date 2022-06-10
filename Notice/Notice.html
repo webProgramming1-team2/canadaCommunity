@@ -40,6 +40,10 @@
                 body.removeChild(a); // body에서 제거
             }
         }
+        function page(num){
+            localStorage.setItem("currentNoticePage", num - 1);
+            
+        }
 
         function readJson(jsonText) {
             let json = JSON.parse(jsonText); // String -> json으로 변환
@@ -59,7 +63,7 @@
             for (let i = noticeList.length-1; i >=0; i--) {
                 tblStr += "<tr>";
                 tblStr += "<td class=\"num\"><b>" + noticeList[i]["num"] + "</b></td>";
-                tblStr += "<td class=\"title\"><b><a href=\'" + noticeList[i]["num"] + "\'>" + noticeList[i]["title"] + "</b></td>";
+                tblStr += "<td class=\"title\"><b><a href=\'ViewNotice.html\' onclick=page("+noticeList[i]["num"] +"); >" + noticeList[i]["title"] + "</b></td>";
                 tblStr += "<td class=\"date\"><b>" + noticeList[i]["date"] + "</b></td>";
                 tblStr += "<td class=\"writer\"><b>" + noticeList[i]["writer"] + "</b></td>";
                 tblStr += "<td class=\"viewNum\"><b>" + noticeList[i]["viewNum"] + "</b></td>";

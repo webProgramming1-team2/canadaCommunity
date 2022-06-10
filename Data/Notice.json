@@ -6,7 +6,55 @@
     "writer": "관리자",
     "viewNum": 0,
     "content": "안녕하세요",
-    "image": null
+    "image": null,
+    "accusation": [
+      {
+        "id": "12"
+      }
+    ],
+    "recommend": [
+      {
+        "id": "13"
+      }
+    ],
+    "comments": [
+      {
+        "writer": "관리자",
+        "id": "ksa211",
+        "date": "2022-05-30",
+        "content": "<br>ㄴ<br><br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "1<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "2<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "3<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "4<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "5<br>"
+      }
+    ]
   },
   {
     "num": 2,
@@ -14,7 +62,55 @@
     "date": "2022-05-31",
     "writer": "관리자",
     "viewNum": 1,
-    "content": "안녕하세요",
-    "image": null
+    "content": "가나다라<br>마바사",
+    "image": null,
+    "accusation": [
+      {
+        "id": "12"
+      }
+    ],
+    "recommend": [
+      {
+        "id": "13"
+      }
+    ],
+    "comments": [
+      {
+        "writer": "관리자",
+        "id": "ksa211",
+        "date": "2022-05-30",
+        "content": "가나다라<br>마바사"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "1<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "2<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "3<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "4<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "5<br>"
+      }
+    ]
   }
 ]

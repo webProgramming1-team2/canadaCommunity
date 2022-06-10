@@ -61,7 +61,11 @@
 
             const form = document.form;
             const title = form.title.value;
-            const content = form.content.value;
+            var content = "";
+            var content_split = form.content.value.split('\n');
+            for(key in content_split){
+                content = content + content_split[key] + "<br>";
+            }
 
             const date= new Date();
             let year = date.getFullYear();
