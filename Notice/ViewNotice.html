@@ -138,7 +138,7 @@
         function accusePost(){
             var q = false;
             for(key in accusation){
-                if(accusation[key].id == localStorage.getItem("id")){
+                if(accusation[key].id === localStorage.getItem("id")){
                     q = true;
                 }
             }
@@ -155,7 +155,7 @@
         function recommendPost(){
             var q = false;
             for(key in recommend){
-                if(recommend[key].id == localStorage.getItem("id")){
+                if(recommend[key].id === localStorage.getItem("id")){
                     q = true;
                 }
             }
