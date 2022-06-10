@@ -28,7 +28,8 @@
         
         let noticeList = [];
         let tblStr = "<table>";
-        let cmtStr = "<table>";
+        let cmtStr = "<table>" + "<colgroup><col style=\"width: 15%\">"+
+            "<col style=\"width: 60%\"><col style=\"width: 10%\"><col style=\"width: 5%\"></colgroup>";
         let btnStr = "<table>";
         let xhttp = new XMLHttpRequest();
 
@@ -72,7 +73,7 @@
             
             btnStr += "<tr>";
             btnStr += "<td><b><input class=\"pagebtn\" type=\"button\" onclick=\"accusePost()\" id=\"accusation\" value=\"신고\">"+ accusation.length+"</b></td>";
-            btnStr += "<td><b><input class=\"pagebtn\" type=\"button\" onclick=\"recommendPost()\" id=\"recommend\" value=\"추천\"></b>"+ recommend.length+"</td>";
+            btnStr += "<td><b><input class=\"pagebtn\" type=\"button\" onclick=\"recommendPost()\" id=\"recommend\" value=\"추천\">"+ recommend.length+"</b></td>";
             btnStr += "</tr>";
             btnStr += "</table>";
 
@@ -192,6 +193,10 @@
             <div id="btn"></div>
 
             <table>
+                <colgroup>
+                    <col style="width: 80%">
+                    <col style="width: 20%">
+                </colgroup>
                 <tr><td><textarea id="content" name="content" class="inputBox" autocomplete='off'></textarea></td>
                     <td><input class="btn" type="button"  id="writeComment" onclick="writeComments()" value="작성"></td></tr>
             </table>
