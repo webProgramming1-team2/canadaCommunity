@@ -6,60 +6,106 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="../User/Join.css">
     <script>
-        let xhttp = new XMLHttpRequest();
+        let isDupliName = false;
+        let isValidName=false;
+        let isDupliId = false;
+        let isValidId=false;
+        function validName() {
+            isDupliName = false;
+            isValidName=false;
+            $.getJSON("../Data/User.json", function (data) {
+                for (const key in data) {
+                    const name = data[key].name;
+                    if (name === $("#name").val()) {
+                        isDupliName = true;
+                        break;
+                    }
+                }
+                if (isDupliName) alert("이미 존재하는 닉네임입니다.");
+                else {
+                    isValidName=true;
+                    alert("사용할 수 있는 닉네임입니다.")
+                }
+            });
+        }
+        function validId() {
+            isDupliId = false;
+            isValidId=false;
+            $.getJSON("../Data/User.json", function (data) {
+                for (const key in data) {
+                    const id = data[key].id;
+                    if (id === $("#id").val()) {
+                        isDupliId = true;
+                        break;
+                    }
+                }
+                if (isDupliId) alert("이미 존재하는 아이디입니다.");
+                else {
+                    isValidId=true;
+                    alert("사용할 수 있는 아이디입니다.")
+                }
+            });
+        }
+
+    let xhttp = new XMLHttpRequest();
         xhttp.open("GET", "../Data/User.json", true);
         xhttp.send();
 
         function fn_sendMember() {
+            const name = $("#name").val();
+            const id = $("#id").val();
+            const pwd = $("#passwd").val();
+            const r_pwd = $("#r_passwd").val();
 
-            const form = document.form;
-            const name = form.name.value;
-            const id = form.id.value;
-            const pwd = form.passwd.value;
-            const r_pwd = form.r_passwd.value;
-            const f_num = form.fst_num.value;
-            const s_num = form.scd_num.value;
-            const t_num = form.trd_num.value;
-            const gender = form.gender.value;
+
+            const f_num = $("#fst_num").val();
+            const s_num = $("#scd_num").val();
+            const t_num = $("#trd_num").val();
+            let gender=$("input:radio[name='gender']:checked").val();
+            const organi = $('#organization').is(':checked');
 
             if (name.length === 0 || name === "") {
                 alert("이름(닉네임) 입력은 필수입니다.");
-                form.name.focus();
+                $("#name").focus();
             } else if (id.length === 0 || id === "") {
                 alert("아이디 입력은 필수입니다.");
-                form.id.focus();
+                $("#id").focus();
             } else if (pwd.length === 0 || pwd === "") {
                 alert("비밀번호 입력은 필수입니다.");
-                form.passwd.focus();
+                $("#passwd").focus();
             } else if (r_pwd.length === 0 || r_pwd === "") {
                 alert("비밀번호 입력은 필수입니다.");
-                form.r_passwd.focus();
+                $("#r_passwd").focus();
             } else if (r_pwd !== pwd) {
                 alert("비밀번호가 일치하지 않습니다.");
-                form.passwd.focus();
+                $("#passwd").focus();
             } else if (f_num.length === 0 || f_num === "") {
                 alert("연락처 입력은 필수입니다.");
-                form.fst_num.focus();
+                $("#fst_num").focus();
             } else if (s_num.length === 0 || s_num === "") {
                 alert("연락처 입력은 필수입니다.");
-                form.scd_num.focus();
+                $("#scd_num").focus();
             } else if (t_num.length === 0 || t_num === "") {
                 alert("연락처 입력은 필수입니다.");
-                form.trd_num.focus();
+                $("#trd_num").focus();
             } else if (gender === "") {
                 alert("성별 입력은 필수입니다.");
+            } else if(!isValidName) {
+                alert("닉네임 중복확인을 해주세요.");
+            } else if(!isValidId) {
+                alert("아이디 중복확인을 해주세요.");
             } else {
                 let userData = {};
-                userData.name = form.name.value;
-                userData.id = form.id.value;
-                userData.passwd = form.passwd.value;
-                userData.phoneNum = form.fst_num.value + "-" + form.scd_num.value
-                    + "-" + form.trd_num.value;
-                userData.gender = form.gender.value;
-                userData.organization = $('#organization').is(':checked');
+                userData.name = name;
+                userData.id = id;
+                userData.passwd = pwd;
+                userData.phoneNum = f_num + "-" + s_num + "-" + t_num;
+                userData.gender = gender;
+                userData.organization = organi;
                 userData.accusation = 0;
                 $.getJSON("../Data/User.json", function (data) {
                     data.push(userData);
+                    alert("회원가입이 완료되었습니다!")
                     new saveJson(data).download();
                     location.replace("../User/LogIn.html");
                 });
@@ -105,30 +151,32 @@
     <div id="header"></div>
     <div id="section">
         <div class="title">회원가입</div>
-        <form name="form" id="form">
+        <div id="form">
             <table>
                 <tr>
-                    <td class="line" colspan="2"></td>
+                    <td class="line" colspan="3"></td>
                 </tr>
                 <tr>
                     <th>이름<br>(닉네임)</th>
-                    <td><input class="box" type="text" name="name"></td>
+                    <td><input class="box" type="text" id="name" onchange="isValidName=false"></td>
+                    <td><button class="btn" id="nameBtn" onclick="validName()">닉네임 중복 확인</button></td>
                 </tr>
                 <tr>
                     <th>아이디</th>
-                    <td><input class="box" type="text" name="id"></td>
+                    <td><input class="box" type="text" id="id" onchange="isValidId=false"></td>
+                    <td><button class="btn" id="idBtn" onclick="validId()">아이디 중복 확인</button></td>
                 </tr>
                 <tr>
                     <th>비밀번호</th>
-                    <td><input class="box" type="password" name="passwd"></td>
+                    <td><input class="box" type="password" id="passwd"></td>
                 </tr>
                 <tr>
                     <th>비밀번호확인</th>
-                    <td><input class="box" type="password" name="r_passwd"></td>
+                    <td><input class="box" type="password" id="r_passwd"></td>
                 </tr>
                 <tr>
                     <th>연락처</th>
-                    <td><select name="fst_num">
+                    <td><select id="fst_num">
                         <option value="">--선택--</option>
                         <option value="010">010</option>
                         <option value="011">011</option>
@@ -136,8 +184,8 @@
                         <option value="02">02</option>
                         <option value="031">031</option>
                         <option value="070">070</option>
-                    </select> - <input class="box" type="text" name="scd_num" size=5 maxlength="4"> -
-                        <input class="box" type="text" name="trd_num" size=5 maxlength="4"></td>
+                    </select> - <input type="text" id="scd_num" size=5 maxlength="4"> -
+                        <input type="text" id="trd_num" size=5 maxlength="4"></td>
                 </tr>
 
                 <tr>
@@ -153,12 +201,12 @@
                 </tr>
                 
                 <tr>
-                    <td colspan="2">
-                        <center><input class="s_btn" type="submit" value="회원가입" onclick="fn_sendMember()"></center>
+                    <td colspan="3">
+                        <center><button class="s_btn" onclick="fn_sendMember()">회원가입</button></center>
                     </td>
                 </tr>
             </table>
-        </form>
+        </div>
     </div>
 </div>
 <!--footer 파일에서 작업-->
