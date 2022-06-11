@@ -22,8 +22,9 @@
                 <textarea readonly id='contentText'></textarea>
             </div>
             <div id="btn">
-                <input class="pagebtn" type="button" onclick="accusePost()" id="accusation" value="신고"><span id="accuseText"></span>
-                <input class="pagebtn" type="button" onclick="recommendPost()" id="recommend" value="추천"><span id="recomText"></span>
+                <input class="btn" type="button" onclick="accusePost()" id="accusation" value="신고"><span id="accuseText"></span>
+                <input class="btn" type="button" onclick="recommendPost()" id="recommend" value="추천"><span id="recomText"></span>
+                <input class="btn" type="button" onclick="deletePost()" id="delete" value="삭제">
             </div>
             <div>
                 <textarea id="writeCmt" name="writeCmt" class="inputBox" autocomplete='off'></textarea>
@@ -59,8 +60,9 @@
         new saveJson(data).download();
     });
 
-    let cmtStr = "<table>" + "<colgroup><col style=\"width: 15%\">"+
-        "<col style=\"width: 60%\"><col style=\"width: 10%\"><col style=\"width: 5%\"></colgroup>";
+
+    let cmtStr = "<table id='commentTable'>" + "<colgroup><col style=\"width: 10%\">"+
+        "<col style=\"width: 65%\"><col style=\"width: 10%\"><col style=\"width: 5%\"></colgroup>";
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
@@ -98,12 +100,12 @@
         for(const key in comments){
             cmtStr += "<tr>";
             cmtStr += "<td><b>" + comments[key].writer+"("+comments[key].id+")"+ "</b></td>";
-            cmtStr += "<td>" + comments[key].content+ "</td>";
+            cmtStr += "<td style=\'text-align: left\'>" + comments[key].content+ "</td>";
             cmtStr += "<td>" + comments[key].date+ "</td>";
             if(comments[key].id === localStorage.getItem("id")){
-                cmtStr += "<td><b><input class=\"pagebtn\" type=\"button\" onclick=\"deleteComments("+ key +")\" value=\"삭제\"></b></td>";
+                cmtStr += "<td><input class=\"btn\" type=\"button\" onclick=\"deleteComments("+ key +")\" value=\"삭제\"></td>";
             }else{
-                cmtStr += "<td><b></b></td>";
+                cmtStr += "<td></td>";
             }
             cmtStr += "</tr>";
         }
@@ -111,6 +113,10 @@
     }
 
     function writeComments(){
+        if(localStorage.getItem("id")===null) {
+            alert("로그인 후에 가능합니다.");
+            return;
+        }
         const date= new Date();
         let year = date.getFullYear();
         let month = date.getMonth()+1;
@@ -136,9 +142,10 @@
             new saveJson(data).download();
             setTimeout(function (){
                 location.reload();
-            },500);
+            },300);
         });
     }
+
     function deleteComments(key){
         comments.splice(key,1);
 
@@ -147,13 +154,21 @@
             new saveJson(data).download();
             setTimeout(function (){
                 location.reload();
-            },500);
+            },200);
         });
     }
 
     let isAccused = false;
 
+    function isWriter(element){
+        if(element.name===writer) return true;
+    }
+
     function accusePost(){
+        if(localStorage.getItem("id")===null) {
+            alert("로그인 후에 가능합니다.");
+            return;
+        }
         for(const key in accusation){
             if(accusation[key].id === localStorage.getItem("id")){
                 isAccused = true;
@@ -169,12 +184,20 @@
                 isAccused = true;
                 new saveJson(data).download();
             });
+            $.getJSON("../Data/User.json", function (data) {
+                data.find(isWriter).accusation+=1;
+                new saveJson(data).download("application/json","User.json");
+            });
         }
     }
 
     let isRecommended = false;
 
     function recommendPost(){
+        if(localStorage.getItem("id")===null) {
+            alert("로그인 후에 가능합니다.");
+            return;
+        }
         for(const key in recommend){
             if(recommend[key].id === localStorage.getItem("id")){
                 isRecommended = true;
@@ -193,6 +216,16 @@
         }
     }
 
+    function deletePost() {
+        $.getJSON("../Data/Notice.json", function (data) {
+            data.splice(num - 1, 1);
+            new saveJson(data).download();
+            setTimeout(function () {
+                location.replace("../Notice/Notice.html");
+            }, 300);
+        });
+    }
+
     $(document).ready(function () {
         $(document.getElementById("header")).load("../Main/Header.html");
         $(document.getElementById("footer")).load("../Main/Footer.html");
@@ -204,7 +237,10 @@
             $("#accuseText").html(accLen);
             $("#recomText").html(recLen);
             $("#comments").html(cmtStr);
-        },500);
+        },200);
+        if (localStorage.getItem("name")!==writer) {
+            $("#delete").css("display", "none");
+        }
     });
 
 </script>

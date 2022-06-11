@@ -4,7 +4,7 @@
     "title": "첫번째 공지사항",
     "date": "2022-05-30",
     "writer": "관리자",
-    "viewNum": 4,
+    "viewNum": 9,
     "content": "안녕하세요",
     "image": null,
     "accusation": [
@@ -15,9 +15,6 @@
     "recommend": [
       {
         "id": "13"
-      },
-      {
-        "id": "psycsh"
       }
     ],
     "comments": [
@@ -56,6 +53,12 @@
         "id": "12",
         "date": "2022-06-08",
         "content": "5<br>"
+      },
+      {
+        "writer": "seo",
+        "id": "psycsh",
+        "date": "2022-06-11",
+        "content": "sgsdg<br>"
       }
     ]
   },
@@ -64,7 +67,7 @@
     "title": "두번째 공지사항",
     "date": "2022-05-31",
     "writer": "관리자",
-    "viewNum": 17,
+    "viewNum": 77,
     "content": "가나다라\n마바사",
     "image": null,
     "accusation": [
@@ -78,9 +81,6 @@
     "recommend": [
       {
         "id": "13"
-      },
-      {
-        "id": "psycsh"
       }
     ],
     "comments": [
@@ -119,6 +119,36 @@
         "id": "12",
         "date": "2022-06-08",
         "content": "5<br>"
+      }
+    ]
+  },
+  {
+    "num": 3,
+    "title": "sdghsdh",
+    "date": "2022-06-11",
+    "writer": "관리자",
+    "viewNum": 8,
+    "content": "dfhjfggggggg\n\njjjjjjjk\n\n\nhklk",
+    "image": null,
+    "accusation": [
+      {
+        "id": "psycsh"
+      },
+      {
+        "id": "admin"
+      }
+    ],
+    "recommend": [
+      {
+        "id": "psycsh"
+      }
+    ],
+    "comments": [
+      {
+        "writer": "seo",
+        "id": "psycsh",
+        "date": "2022-06-11",
+        "content": "안녕하세요<br>"
       }
     ]
   }

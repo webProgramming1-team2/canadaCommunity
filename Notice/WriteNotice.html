@@ -78,12 +78,22 @@
             post.viewNum=0;
             post.content = content;
             post.image = imageFile;
+            post.accusation=[];
+            post.recommend=[];
+            post.comments=[];
+
 
             $.getJSON("../Data/Notice.json", function (data) {
                 data.push(post);
                 new saveJson(data).download("application/json","Notice.json");
-                location.replace("../Notice/Notice.html");
+                setTimeout(function (){
+                    page(post.num);
+                    location.replace("../Notice/ViewNotice.html");
+                },300);
             });
+        }
+        function page(num){
+            localStorage.setItem("currentNoticePage", num - 1);
         }
 
         $(document).ready(function () {

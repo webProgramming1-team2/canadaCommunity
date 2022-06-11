@@ -1,5 +1,14 @@
 [
   {
+    "name": "관리자",
+    "id": "admin",
+    "passwd": "1234",
+    "phoneNum": "010-1111-9119",
+    "gender": "female",
+    "organization": true,
+    "accusation": 3
+  },
+  {
     "name": "1222223",
     "id": "12",
     "passwd": "12",

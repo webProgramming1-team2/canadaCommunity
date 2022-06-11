@@ -6,38 +6,9 @@ table {
     width: 100%;
     margin: auto;
     text-align: center;
-    border: solid 1px #c7d696;
-}
-
-tr{
-
-    border-bottom: 2px solid #c7d696;
-}
-
-/*th {*/
-/*    width: 10%;*/
-/*    border-bottom: 2px solid #c7d696;*/
-/*    background: white;*/
-/*    text-align: center;*/
-/*    font-size: 17px;*/
-/*    color: black;*/
-/*}*/
-
-td {
-    text-align: left;
-    font-size: 15px;
-    color: black;
-}
-
-hr {
-    margin-top: 15px;
-    border-color: #c7d696;
-}
-
-.inputBox {
-    width: 90%;
-    height: 30px;
-    font-size: 14px;
+    border: 1px solid #c6c6c6;
+    border-radius: 5px;
+    font-size: 17px;
 }
 
 #contentTitle{
@@ -65,7 +36,9 @@ hr {
     width: 100%;
     resize: none;
     min-height: 500px;
-    /*border: none;*/
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid #c6c6c6;
 }
 
 #contentText:focus{
@@ -81,10 +54,13 @@ hr {
 
 #writeCmt{
     height: 40px;
-    width: 90%;
+    width: 95%;
     resize: none;
     float: left;
     margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    border: 1px solid #c6c6c6;
 }
 
 #writeCmtBtn{
@@ -92,49 +68,19 @@ hr {
     margin-bottom: 10px;
 }
 
-.left{
-    text-align: left;
+#commentTable{
+    margin-bottom: 30px;
 }
 
-#image{
-    margin-left: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-button {
-    border: 0;
-    background: #c7d696;
-    margin-left: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 50px;
-    padding: 2px;
-}
-.btn {
-    background: #c7d696;
-    border: 0;
-    border-radius: 5px;
-    width: 100px;
-    height: 40px;
+.btn{
     font-size: 14px;
     cursor:pointer;
+    padding: .4em .75em;
+    background-color: #fdfdfd;
+    color: #999;
+    border: 1px solid #c6c6c6;
+    border-radius: .25em;
 }
-
-.button {
-    display: flex; /* 크기를 바꿔서라도 한줄에 우겨넣음 */
-    flex-direction: row; /* 가로줄(row) or 세로줄(colmun) */
-    flex-wrap: wrap; /* 크기변형X 한줄 넘으면 다음줄*/
-    justify-content: flex-end;
-    width: 110px;
-    margin: 15px auto;
-}
-.pagebtn{
-    background: #c7d696;
-    border: 0;
-    border-radius: 5px;
-    width: 50px;
-    height: 25px;
-    font-size: 14px;
-    cursor:pointer;
+#delete{
+    float: right;
 }
