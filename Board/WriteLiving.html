@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>캐모아 - 벤쿠버 생활 작성</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <link rel="stylesheet" href="../Write/Write.css">
+    <link rel="stylesheet" href="../Board/WriteBoard.css">
     <script>
         class saveJson {
             // 클래스 생성자 초기화 실시
@@ -83,17 +83,17 @@
             post.comments=[];
 
 
-            $.getJSON("../Data/Notice.json", function (data) {
+            $.getJSON("../Data/Living.json", function (data) {
                 data.push(post);
-                new saveJson(data).download("application/json","Notice.json");
+                new saveJson(data).download("application/json","Living.json");
                 setTimeout(function (){
                     page(post.num);
-                    location.replace("../View/ViewLiving.html");
+                    location.replace("../Board/ViewLiving.html");
                 },300);
             });
         }
         function page(num){
-            localStorage.setItem("currentNoticePage", num - 1);
+            localStorage.setItem("currentLivingPage", num - 1);
         }
 
         $(document).ready(function () {
@@ -117,7 +117,7 @@
     <div id="section">
         <form name="form" action="javascript:writePost();" method="post">
             <div id="pageTitle">
-                공지사항 등록
+                게시물 등록
             </div>
             <table>
                 <tr>

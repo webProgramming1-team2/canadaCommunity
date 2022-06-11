@@ -36,7 +36,7 @@
             for (let i = list.length - 1; i >= 0; i--) {
                 tblStr += "<tr>";
                 tblStr += "<td class=\"num\"><b>" + list[i]["num"] + "</b></td>";
-                tblStr += "<td class=\"title\"><b><a href=\'../View/ViewLiving.html\' onclick=page("+list[i]["num"] +"); >" + list[i]["title"] + "</b></td>";
+                tblStr += "<td class=\"title\"><b><a href=\'../Board/ViewLiving.html\' onclick=page("+list[i]["num"] +"); >" + list[i]["title"] + "</b></td>";
                 tblStr += "<td class=\"date\"><b>" + list[i]["date"] + "</b></td>";
                 tblStr += "<td class=\"writer\"><b>" + list[i]["writer"] + "</b></td>";
                 tblStr += "<td class=\"viewNum\"><b>" + list[i]["viewNum"] + "</b></td>";
@@ -72,7 +72,7 @@
                 <input class="btn" type="button" value="검색" onclick=""/>
             </div>
             <div class="writeBtn">
-                <button class="btn" onclick="location.href='../Write/WriteLiving.html'">글쓰기</button>
+                <button class="btn" onclick="location.href='../Board/WriteLiving.html'">글쓰기</button>
             </div>
             <div id="list"></div>
         </div>
