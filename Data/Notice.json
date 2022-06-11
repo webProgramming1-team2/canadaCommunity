@@ -127,7 +127,7 @@
     "title": "sdghsdh",
     "date": "2022-06-11",
     "writer": "관리자",
-    "viewNum": 8,
+    "viewNum": 10,
     "content": "dfhjfggggggg\n\njjjjjjjk\n\n\nhklk",
     "image": null,
     "accusation": [
@@ -151,5 +151,17 @@
         "content": "안녕하세요<br>"
       }
     ]
+  },
+  {
+    "num": 4,
+    "title": "1234535",
+    "date": "2022-06-11",
+    "writer": "한인단체",
+    "viewNum": 3,
+    "content": "1325325235",
+    "image": null,
+    "accusation": [],
+    "recommend": [],
+    "comments": []
   }
 ]

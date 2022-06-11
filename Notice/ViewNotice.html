@@ -102,7 +102,7 @@
             cmtStr += "<td><b>" + comments[key].writer+"("+comments[key].id+")"+ "</b></td>";
             cmtStr += "<td style=\'text-align: left\'>" + comments[key].content+ "</td>";
             cmtStr += "<td>" + comments[key].date+ "</td>";
-            if(comments[key].id === localStorage.getItem("id")){
+            if(comments[key].id === localStorage.getItem("id")||"admin" === localStorage.getItem("id")){
                 cmtStr += "<td><input class=\"btn\" type=\"button\" onclick=\"deleteComments("+ key +")\" value=\"삭제\"></td>";
             }else{
                 cmtStr += "<td></td>";
@@ -238,7 +238,7 @@
             $("#recomText").html(recLen);
             $("#comments").html(cmtStr);
         },200);
-        if (localStorage.getItem("name")!==writer) {
+        if (localStorage.getItem("name")!==writer&&"admin" !== localStorage.getItem("id")) {
             $("#delete").css("display", "none");
         }
     });
