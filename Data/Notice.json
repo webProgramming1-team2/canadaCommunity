@@ -78,9 +78,6 @@
     "recommend": [
       {
         "id": "13"
-      },
-      {
-        "id": "psycsh"
       }
     ],
     "comments": [
@@ -119,6 +116,88 @@
         "id": "12",
         "date": "2022-06-08",
         "content": "5<br>"
+      }
+    ]
+  },{
+    "num": 3,
+    "title": "세번째 공지사항",
+    "date": "2022-05-31",
+    "writer": "관리자",
+    "viewNum": 17,
+    "content": "가나다라\n마바사",
+    "image": null,
+    "accusation": [
+      {
+        "id": "12"
+      },
+      {
+        "id": "psycsh"
+      }
+    ],
+    "recommend": [
+      {
+        "id": "13"
+      },
+      {
+        "id": "psycsh"
+      },
+      {
+        "id": "psycsh"
+      },
+      {
+        "id": "psycsh"
+      },
+      {
+        "id": "psycsh"
+      },
+      {
+        "id": "psycsh"
+      }
+    ],
+    "comments": [
+      {
+        "writer": "관리자",
+        "id": "ksa211",
+        "date": "2022-05-30",
+        "content": "가나다라<br>마바사"
+      }
+    ]
+  },{
+    "num": 4,
+    "title": "네번째 공지사항",
+    "date": "2022-05-31",
+    "writer": "관리자",
+    "viewNum": 17,
+    "content": "가나다라\n마바사",
+    "image": null,
+    "accusation": [
+      {
+        "id": "12"
+      },
+      {
+        "id": "psycsh"
+      }
+    ],
+    "recommend": [
+      {
+        "id": "13"
+      },
+      {
+        "id": "psycsh"
+      },
+      {
+        "id": "psycsh"
+      },
+      {
+        "id": "psycsh"
+      }
+    ],
+    "comments": [
+      {
+        "writer": "관리자",
+        "id": "ksa211",
+        "date": "2022-05-30",
+        "content": "가나다라<br>마바사"
       }
     ]
   }

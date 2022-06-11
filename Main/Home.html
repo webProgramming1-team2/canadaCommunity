@@ -38,5 +38,19 @@
         $(document.getElementById("header")).load("../Main/Header.html");
         $(document.getElementById("footer")).load("../Main/Footer.html");
     });
+
+
+    function getNoticeBest(){
+        $.getJSON("../Data/Notice.json", function (data) {
+           
+            let list = [];
+            for(p in data){
+                list.push({"num": data[p].num, recommend: data[p].recommend.length});
+            }
+        });
+        list.sort(function(a, b) {
+            list =  b["recommend"] - a["recommend"];
+        })
+    }
 </script>
 </html>

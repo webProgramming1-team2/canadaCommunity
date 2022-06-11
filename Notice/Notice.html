@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../Notice/Notice.css">
     <script>
         let list = [];
+        let pageList = [];
+        let sortedList = [];
         let tblStr = "<table>";
         let xhttp = new XMLHttpRequest();
 
@@ -66,6 +68,20 @@
             $(document.getElementById("footer")).load("../Main/Footer.html");
             $("#list").html(tblStr);
         });
+        function getNoticeBest(){
+
+        $.getJSON("../Data/Notice.json", function (data) {
+           
+            
+            for(p in data){
+                pageList.push({"num": data[p].num, recommend: data[p].recommend.length});
+            }
+            sortedList = pageList.sort(function(a, b) {return  b["recommend"] - a["recommend"];});
+            for(q in sortedList){
+                alert(sortedList[q].num + "  "+ sortedList[q].recommend);
+            }
+        });
+    }
 
     </script>
 </head>
@@ -79,7 +95,7 @@
         </div>
         <div class="search">
             <input class="inputBox" type="text" maxlength="50"/>
-            <input class="btn" type="button" value="검색" onclick="search()"/>
+            <input class="btn" type="button" value="검색" onclick="getNoticeBest()"/>
         </div>
         <div class="writeBtn">
             <button class="btn" onclick="location.href='../Notice/WriteNotice.html'">글쓰기</button>
