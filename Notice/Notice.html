@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>캐모아 - 공지사항</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <link rel="stylesheet" href="../Notice/Notice.css">
+    <link rel="stylesheet" href="../Board/Board.css">
     <script>
         let list = [];
         let pageList = [];
@@ -41,7 +41,7 @@
             for (let i = list.length-1; i >=0; i--) {
                 tblStr += "<tr class='row'>";
                 tblStr += "<td class=\"num\"><b>" + list[i]["num"] + "</b></td>";
-                tblStr += "<td class=\"title\"><b><a href=\'../Notice/ViewNotice.html\' onclick=page("+list[i]["num"] +"); >" + list[i]["title"] + "</b></td>";
+                tblStr += "<td class=\"title\"><b><a href=\'../View/ViewNotice.html\' onclick=page("+list[i]["num"] +"); >" + list[i]["title"] + "</b></td>";
                 tblStr += "<td class=\"date\"><b>" + list[i]["date"] + "</b></td>";
                 tblStr += "<td class=\"writer\"><b>" + list[i]["writer"] + "</b></td>";
                 tblStr += "<td class=\"viewNum\"><b>" + list[i]["viewNum"] + "</b></td>";
@@ -73,20 +73,6 @@
                 $("#writeBtn").css("display", "none");
             }
         });
-        function getNoticeBest(){
-
-        $.getJSON("../Data/Notice.json", function (data) {
-           
-            
-            for(p in data){
-                pageList.push({"num": data[p].num, recommend: data[p].recommend.length});
-            }
-            sortedList = pageList.sort(function(a, b) {return  b["recommend"] - a["recommend"];});
-            for(q in sortedList){
-                alert(sortedList[q].num + "  "+ sortedList[q].recommend);
-            }
-        });
-    }
 
     </script>
 </head>
@@ -100,10 +86,10 @@
         </div>
         <div class="search">
             <input class="inputBox" type="text" maxlength="50"/>
-            <input class="btn" type="button" value="검색" onclick="getNoticeBest()"/>
+            <input class="btn" type="button" value="검색" onclick="search()"/>
         </div>
         <div class="writeBtn">
-            <button id="writeBtn" class="btn" onclick="location.href='../Notice/WriteNotice.html'">글쓰기</button>
+            <button id="writeBtn" class="btn" onclick="location.href='../Write/WriteNotice.html'">글쓰기</button>
         </div>
         <div id="list"></div>
     </div>

@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>캐모아 - 공지사항 작성</title>
+    <title>캐모아 - 벤쿠버 생활 작성</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <link rel="stylesheet" href="../Board/WriteBoard.css">
+    <link rel="stylesheet" href="../Write/Write.css">
     <script>
         class saveJson {
             // 클래스 생성자 초기화 실시
@@ -45,7 +45,7 @@
                 readJson(xhttp.responseText);
             }
         }
-        xhttp.open("GET", "../Data/Notice.json", true);
+        xhttp.open("GET", "../Data/Living.json", true);
         xhttp.send();
 
         function writePost() {
@@ -88,12 +88,12 @@
                 new saveJson(data).download("application/json","Notice.json");
                 setTimeout(function (){
                     page(post.num);
-                    location.replace("../View/ViewNotice.html");
+                    location.replace("../View/ViewLiving.html");
                 },300);
             });
         }
         function page(num){
-            localStorage.setItem("currentPage", num - 1);
+            localStorage.setItem("currentNoticePage", num - 1);
         }
 
         $(document).ready(function () {
@@ -118,7 +118,6 @@
         <form name="form" action="javascript:writePost();" method="post">
             <div id="pageTitle">
                 공지사항 등록
-                <hr>
             </div>
             <table>
                 <tr>
@@ -136,7 +135,7 @@
             </table>
             <div class="button">
                 <button type="submit">등록</button>
-                <button type="button" onclick="location.href='../Notice/Notice.html'">취소</button>
+                <button type="button" onclick="location.href='../Board/Living.html'">취소</button>
             </div>
         </form>
     </div>

@@ -11,7 +11,6 @@ table {
 
 th {
     width: 10%;
-    /*border-bottom: 2px solid #c7d696;*/
     background: white;
     text-align: center;
     font-size: 17px;
@@ -19,7 +18,6 @@ th {
 }
 
 td {
-    /*border-bottom: 2px solid #c7d696;*/
     text-align: center;
     font-size: 15px;
     color: black;
@@ -32,7 +30,7 @@ td {
 
 hr {
     margin-top: 15px;
-    border-color: #c7d696;
+    border-color: #f59e92;
 }
 
 .inputBox {

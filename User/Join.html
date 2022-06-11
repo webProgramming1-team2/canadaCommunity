@@ -61,7 +61,7 @@
             const f_num = $("#fst_num").val();
             const s_num = $("#scd_num").val();
             const t_num = $("#trd_num").val();
-            let gender=$("input:radio[name='gender']:checked").val();
+            let gender = $("input:radio[name='gender']:checked").val();
             const organi = $('#organization').is(':checked');
 
             if (name.length === 0 || name === "") {
@@ -90,9 +90,9 @@
                 $("#trd_num").focus();
             } else if (gender === "") {
                 alert("성별 입력은 필수입니다.");
-            } else if(!isValidName) {
+            } else if (!isValidName) {
                 alert("닉네임 중복확인을 해주세요.");
-            } else if(!isValidId) {
+            } else if (!isValidId) {
                 alert("아이디 중복확인을 해주세요.");
             } else {
                 let userData = {};
