@@ -4,7 +4,7 @@
     "title": "첫번째 공지사항",
     "date": "2022-05-30",
     "writer": "관리자",
-    "viewNum": 4,
+    "viewNum": 9,
     "content": "안녕하세요",
     "image": null,
     "accusation": [
@@ -15,9 +15,6 @@
     "recommend": [
       {
         "id": "13"
-      },
-      {
-        "id": "psycsh"
       }
     ],
     "comments": [
@@ -56,6 +53,12 @@
         "id": "12",
         "date": "2022-06-08",
         "content": "5<br>"
+      },
+      {
+        "writer": "seo",
+        "id": "psycsh",
+        "date": "2022-06-11",
+        "content": "sgsdg<br>"
       }
     ]
   },
@@ -64,7 +67,7 @@
     "title": "두번째 공지사항",
     "date": "2022-05-31",
     "writer": "관리자",
-    "viewNum": 17,
+    "viewNum": 77,
     "content": "가나다라\n마바사",
     "image": null,
     "accusation": [
@@ -118,87 +121,47 @@
         "content": "5<br>"
       }
     ]
-  },{
+  },
+  {
     "num": 3,
-    "title": "세번째 공지사항",
-    "date": "2022-05-31",
+    "title": "sdghsdh",
+    "date": "2022-06-11",
     "writer": "관리자",
-    "viewNum": 17,
-    "content": "가나다라\n마바사",
+    "viewNum": 10,
+    "content": "dfhjfggggggg\n\njjjjjjjk\n\n\nhklk",
     "image": null,
     "accusation": [
       {
-        "id": "12"
+        "id": "psycsh"
       },
       {
-        "id": "psycsh"
+        "id": "admin"
       }
     ],
     "recommend": [
-      {
-        "id": "13"
-      },
-      {
-        "id": "psycsh"
-      },
-      {
-        "id": "psycsh"
-      },
-      {
-        "id": "psycsh"
-      },
-      {
-        "id": "psycsh"
-      },
       {
         "id": "psycsh"
       }
     ],
     "comments": [
       {
-        "writer": "관리자",
-        "id": "ksa211",
-        "date": "2022-05-30",
-        "content": "가나다라<br>마바사"
+        "writer": "seo",
+        "id": "psycsh",
+        "date": "2022-06-11",
+        "content": "안녕하세요<br>"
       }
     ]
-  },{
+  },
+  {
     "num": 4,
-    "title": "네번째 공지사항",
-    "date": "2022-05-31",
-    "writer": "관리자",
-    "viewNum": 17,
-    "content": "가나다라\n마바사",
+    "title": "1234535",
+    "date": "2022-06-11",
+    "writer": "한인단체",
+    "viewNum": 3,
+    "content": "1325325235",
     "image": null,
-    "accusation": [
-      {
-        "id": "12"
-      },
-      {
-        "id": "psycsh"
-      }
-    ],
-    "recommend": [
-      {
-        "id": "13"
-      },
-      {
-        "id": "psycsh"
-      },
-      {
-        "id": "psycsh"
-      },
-      {
-        "id": "psycsh"
-      }
-    ],
-    "comments": [
-      {
-        "writer": "관리자",
-        "id": "ksa211",
-        "date": "2022-05-30",
-        "content": "가나다라<br>마바사"
-      }
-    ]
+    "accusation": [],
+    "recommend": [],
+    "comments": []
   }
 ]

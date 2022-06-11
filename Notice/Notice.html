@@ -66,7 +66,12 @@
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
             $(document.getElementById("footer")).load("../Main/Footer.html");
-            $("#list").html(tblStr);
+            setTimeout(function (){
+                $("#list").html(tblStr);
+            },200);
+            if (localStorage.getItem("organization")!=="true") {
+                $("#writeBtn").css("display", "none");
+            }
         });
         function getNoticeBest(){
 
@@ -98,7 +103,7 @@
             <input class="btn" type="button" value="검색" onclick="getNoticeBest()"/>
         </div>
         <div class="writeBtn">
-            <button class="btn" onclick="location.href='../Notice/WriteNotice.html'">글쓰기</button>
+            <button id="writeBtn" class="btn" onclick="location.href='../Notice/WriteNotice.html'">글쓰기</button>
         </div>
         <div id="list"></div>
     </div>

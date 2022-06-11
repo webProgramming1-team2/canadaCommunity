@@ -1,5 +1,14 @@
 [
   {
+    "name": "관리자",
+    "id": "admin",
+    "passwd": "1234",
+    "phoneNum": "010-1111-9119",
+    "gender": "female",
+    "organization": true,
+    "accusation": 3
+  },
+  {
     "name": "1222223",
     "id": "12",
     "passwd": "12",
@@ -24,6 +33,15 @@
     "phoneNum": "010-1234-2345",
     "gender": "female",
     "organization": false,
+    "accusation": 0
+  },
+  {
+    "name": "한인단체",
+    "id": "hanin",
+    "passwd": "1234",
+    "phoneNum": "010-1234-1234",
+    "gender": "female",
+    "organization": true,
     "accusation": 0
   }
 ]
