@@ -21,7 +21,7 @@
         xhttp.send();
 
         function page(num){
-            localStorage.setItem("currentNBuyPage", num - 1);
+            localStorage.setItem("currentPage", num - 1);
         }
         function readJson(jsonText) {
             let json = JSON.parse(jsonText); // String -> json으로 변환
@@ -62,6 +62,21 @@
                 }else item[i].style.display="none";
             }
         }
+        function confirm(){
+            $.getJSON("../Data/User.json", function (data) {
+                for(key in data){
+                    if(data[key].id ===  localStorage.getItem("id")){
+                       
+                       if(data[key].accusation >= 10){
+                            alert("게시물을 작성할 수 없는 사용자입니다.");
+                       }else{
+                            location.replace("../Market/WriteBuy.html");
+                       }
+                    }
+                }
+
+            });
+        }
 
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
@@ -84,7 +99,7 @@
             <input class="btn" type="button" value="검색" onclick="search()"/>
         </div>
         <div class="writeBtn">
-            <button class="btn" onclick="location.href='../Notice/WriteNotice.html'">글쓰기</button>
+            <button class="btn" onclick= confirm()>글쓰기</button>
         </div>
         <div id="list"></div>
     </div>

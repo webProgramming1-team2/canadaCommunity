@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>캐모아 - 자유 게시판</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="../Board/ViewBoard.css">
+
+</head>
+<body>
+    <div id="wrapper">
+        <!--header 파일에서 작업-->
+        <div id="header"></div>
+        <div id="section">
+            <form id = "form" name="form">
+            <div id="pageTitle">
+                <div id="contentTitle"></div>
+                <div id="date"></div>
+                <div id="writer"></div>
+            </div>
+            <div id="content">
+                <textarea readonly id='contentText'></textarea>
+            </div>
+            <div id="btn">
+                <input class="btn" type="button" onclick="accusePost()" id="accusation" value="신고"><span id="accuseText"></span>
+                <input class="btn" type="button" onclick="recommendPost()" id="recommend" value="추천"><span id="recomText"></span>
+                <input class="btn" type="button" onclick="deletePost()" id="delete" value="삭제">
+            </div>
+            <div>
+                <textarea id="writeCmt" name="writeCmt" class="inputBox" autocomplete='off'></textarea>
+                    <input class="btn" type="button"  id="writeCmtBtn" onclick="writeComments()" value="작성">
+            </div>
+            <div id="comments"></div>
+            </form>
+        </div>
+    </div>
+<!--footer 파일에서 작업-->
+<div id="footer"></div>
+</body>
+<script type = "text/javascript">
+
+    let num, title, date, writer, content, image;
+    let accusation = [];
+    let recommend = [];
+    let comments = [];
+    let accLen,recLen;
+    $.getJSON("../Data/StudyAbroad.json", function (data) {
+        num = data[localStorage.getItem("currentPage")].num;
+        title = data[localStorage.getItem("currentPage")].title;
+        date = data[localStorage.getItem("currentPage")].date;
+        writer = data[localStorage.getItem("currentPage")].writer;
+        data[localStorage.getItem("currentPage")].viewNum+=1;
+        content = data[localStorage.getItem("currentPage")].content;
+        image = data[localStorage.getItem("currentPage")].image;
+        accusation = data[localStorage.getItem("currentPage")].accusation;
+        recommend = data[localStorage.getItem("currentPage")].recommend;
+        comments = data[localStorage.getItem("currentPage")].comments;
+        accLen=accusation.length;
+        recLen=recommend.length;
+        new saveJson(data).download();
+    });
+
+
+    let cmtStr = "<table id='commentTable'>" + "<colgroup><col style=\"width: 10%\">"+
+        "<col style=\"width: 65%\"><col style=\"width: 10%\"><col style=\"width: 5%\"></colgroup>";
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            readJson(xhttp.responseText);
+        }
+    }
+    xhttp.open("GET", "../Data/StudyAbroad.json", true);
+    xhttp.send();
+    class saveJson {
+        // 클래스 생성자 초기화 실시
+        constructor(data = []) {
+            this.data = data;
+        }
+
+        // 파일 다운로드 수행 실시
+        download(type_of = "application/json", filename  = "StudyAbroad.json") { // 확장자명을 json 으로 지정
+
+            let txt = [];
+            txt.push(JSON.stringify(this.data, null, 2));
+            let body = document.body; // body 변수 선언
+            const a = document.createElement("a"); // a 태그 생성
+            a.href = URL.createObjectURL(new Blob(txt, {
+                type: type_of
+            }));
+            a.setAttribute("download", filename); // a 태그에 다운로드 속성 추가
+            body.appendChild(a); // body에 a 태그 추가
+            a.click(); // 클릭 이벤트를 발생시켜 다운로드
+            body.removeChild(a); // body에서 제거
+        }
+    }
+
+
+    function readJson() {
+        for(const key in comments){
+            cmtStr += "<tr>";
+            cmtStr += "<td><b>" + comments[key].writer+"("+comments[key].id+")"+ "</b></td>";
+            cmtStr += "<td style=\'text-align: left\'>" + comments[key].content+ "</td>";
+            cmtStr += "<td>" + comments[key].date+ "</td>";
+            if(comments[key].id === localStorage.getItem("id")||"admin" === localStorage.getItem("id")){
+                cmtStr += "<td><input class=\"btn\" type=\"button\" onclick=\"deleteComments("+ key +")\" value=\"삭제\"></td>";
+            }else{
+                cmtStr += "<td></td>";
+            }
+            cmtStr += "</tr>";
+        }
+        cmtStr += "</table>";
+    }
+
+    function writeComments(){
+        if(localStorage.getItem("id")===null) {
+            alert("로그인 후에 가능합니다.");
+            return;
+        }
+        const date= new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let day = date.getDate();
+        if(month<10) month="0"+month;
+        if(day<10) day="0"+day;
+        const today=year+"-"+month+"-"+day;
+        let comment = {
+            "writer": localStorage.getItem("name"),
+            "id": localStorage.getItem("id"),
+            "date": today,
+            "content":""
+        }
+        const form = document.form;
+        let content = "";
+        const content_split = form.writeCmt.value.split('\n');
+        for(const key in content_split){
+            content = content + content_split[key] + "<br>";
+        }
+        comment.content = content;
+        $.getJSON("../Data/StudyAbroad.json", function (data) {
+            data[num-1].comments.push(comment);
+            new saveJson(data).download();
+            setTimeout(function (){
+                location.reload();
+            },300);
+        });
+    }
+
+    function deleteComments(key){
+        comments.splice(key,1);
+
+        $.getJSON("../Data/StudyAbroad.json", function (data) {
+            data[num-1].comments = comments;
+            new saveJson(data).download();
+            setTimeout(function (){
+                location.reload();
+            },200);
+        });
+    }
+
+    let isAccused = false;
+
+    function isWriter(element){
+        if(element.name===writer) return true;
+    }
+
+    function accusePost(){
+        if(localStorage.getItem("id")===null) {
+            alert("로그인 후에 가능합니다.");
+            return;
+        }
+        for(const key in accusation){
+            if(accusation[key].id === localStorage.getItem("id")){
+                isAccused = true;
+            }
+        }
+        if(isAccused){
+            alert("한 게시물에 신고는 한번만 할 수 있습니다.");
+        }else{
+            $.getJSON("../Data/StudyAbroad.json", function (data) {
+                $("#accuseText").html(accLen+1);
+                var userData = {"id": localStorage.getItem("id")}
+                data[num-1].accusation.push(userData);
+                isAccused = true;
+                new saveJson(data).download();
+            });
+            $.getJSON("../Data/User.json", function (data) {
+                data.find(isWriter).accusation+=1;
+                new saveJson(data).download("application/json","User.json");
+            });
+        }
+    }
+
+    let isRecommended = false;
+
+    function recommendPost(){
+        if(localStorage.getItem("id")===null) {
+            alert("로그인 후에 가능합니다.");
+            return;
+        }
+        for(const key in recommend){
+            if(recommend[key].id === localStorage.getItem("id")){
+                isRecommended = true;
+            }
+        }
+        if(isRecommended){
+            alert("한 게시물에 추천은 한번만 할 수 있습니다.");
+        }else{
+            $.getJSON("../Data/StudyAbroad.json", function (data) {
+                $("#recomText").html(recLen+1);
+                var userData = {"id": localStorage.getItem("id")}
+                data[num-1].recommend.push(userData);
+                isRecommended = true;
+                new saveJson(data).download();
+            });
+        }
+    }
+
+    function deletePost() {
+        $.getJSON("../Data/StudyAbroad.json", function (data) {
+            data.splice(num - 1, 1);
+            new saveJson(data).download();
+            setTimeout(function () {
+                location.replace("../Board/StudyAbroad.html");
+            }, 300);
+        });
+    }
+
+    $(document).ready(function () {
+        $(document.getElementById("header")).load("../Main/Header.html");
+        $(document.getElementById("footer")).load("../Main/Footer.html");
+        setTimeout(function (){
+            $("#contentTitle").html(title);
+            $("#writer").html(writer);
+            $("#date").html(date);
+            $("#contentText").text(content);
+            $("#accuseText").html(accLen);
+            $("#recomText").html(recLen);
+            $("#comments").html(cmtStr);
+        },200);
+        if (localStorage.getItem("name")!==writer&&"admin" !== localStorage.getItem("id")) {
+            $("#delete").css("display", "none");
+        }
+    });
+
+</script>
+</html>

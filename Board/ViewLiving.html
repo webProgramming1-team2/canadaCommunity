@@ -45,16 +45,16 @@
     let comments = [];
     let accLen,recLen;
     $.getJSON("../Data/Living.json", function (data) {
-        num = data[localStorage.getItem("currentLivingPage")].num;
-        title = data[localStorage.getItem("currentLivingPage")].title;
-        date = data[localStorage.getItem("currentLivingPage")].date;
-        writer = data[localStorage.getItem("currentLivingPage")].writer;
-        data[localStorage.getItem("currentLivingPage")].viewNum+=1;
-        content = data[localStorage.getItem("currentLivingPage")].content;
-        image = data[localStorage.getItem("currentLivingPage")].image;
-        accusation = data[localStorage.getItem("currentLivingPage")].accusation;
-        recommend = data[localStorage.getItem("currentLivingPage")].recommend;
-        comments = data[localStorage.getItem("currentLivingPage")].comments;
+        num = data[localStorage.getItem("currentPage")].num;
+        title = data[localStorage.getItem("currentPage")].title;
+        date = data[localStorage.getItem("currentPage")].date;
+        writer = data[localStorage.getItem("currentPage")].writer;
+        data[localStorage.getItem("currentPage")].viewNum+=1;
+        content = data[localStorage.getItem("currentPage")].content;
+        image = data[localStorage.getItem("currentPage")].image;
+        accusation = data[localStorage.getItem("currentPage")].accusation;
+        recommend = data[localStorage.getItem("currentPage")].recommend;
+        comments = data[localStorage.getItem("currentPage")].comments;
         accLen=accusation.length;
         recLen=recommend.length;
         new saveJson(data).download();

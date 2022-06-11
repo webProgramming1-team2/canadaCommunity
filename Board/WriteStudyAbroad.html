@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>캐모아 - 유학 게시판 작성</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="../Board/WriteBoard.css">
+    <script>
+        class saveJson {
+            // 클래스 생성자 초기화 실시
+            constructor(data = []) {
+                this.data = data;
+            }
+
+            // 파일 다운로드 수행 실시
+            download(type_of, filename) { // 확장자명을 json 으로 지정
+
+                let txt = [];
+                txt.push(JSON.stringify(this.data, null, 2));
+                let body = document.body; // body 변수 선언
+                const a = document.createElement("a"); // a 태그 생성
+                a.href = URL.createObjectURL(new Blob(txt, {
+                    type: type_of
+                }));
+                a.setAttribute("download", filename); // a 태그에 다운로드 속성 추가
+                body.appendChild(a); // body에 a 태그 추가
+                a.click(); // 클릭 이벤트를 발생시켜 다운로드
+                body.removeChild(a); // body에서 제거
+            }
+        }
+
+        function readJson(jsonText) {
+            let json = JSON.parse(jsonText); // String -> json으로 변환
+
+            for (let i = 0; i < json.length; i++) {
+                menuList.push(json[i]);
+            }
+        }
+
+        let menuList = [];
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
+                readJson(xhttp.responseText);
+            }
+        }
+        xhttp.open("GET", "../Data/StudyAbroad.json", true);
+        xhttp.send();
+
+        function writePost() {
+            let files;
+            let imageFile=[];
+
+            files=document.getElementById("image").files;
+            if(files.length>0){
+                for (let i = 0; i < files.length; i++) {
+                    imageFile.push(files[i].name);
+                }
+            } else imageFile=null;
+
+            const form = document.form;
+            const title = form.title.value;
+            const content = form.content.value;
+            const date= new Date();
+            let year = date.getFullYear();
+            let month = date.getMonth()+1;
+            let day = date.getDate();
+            if(month<10) month="0"+month;
+            if(day<10) day="0"+day;
+            const today=year+"-"+month+"-"+day;
+
+            let post = {};
+            post.num=menuList[menuList.length-1].num+1;
+            post.title = title;
+            post.date=today;
+            post.writer=localStorage.getItem("name");
+            post.viewNum=0;
+            post.content = content;
+            post.image = imageFile;
+            post.accusation=[];
+            post.recommend=[];
+            post.comments=[];
+
+
+            $.getJSON("../Data/StudyAbroad.json", function (data) {
+                data.push(post);
+                new saveJson(data).download("application/json","StudyAbroad.json");
+                setTimeout(function (){
+                    page(post.num);
+                    location.replace("../Board/ViewStudyAbroad.html");
+                },300);
+            });
+        }
+        function page(num){
+            localStorage.setItem("currentPage", num - 1);
+        }
+
+        $(document).ready(function () {
+            $(document.getElementById("header")).load("../Main/Header.html");
+            $(document.getElementById("footer")).load("../Main/Footer.html");
+            // 엔터 입력 방지
+            document.getElementById("title").addEventListener('keydown', function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                }
+            }, true);
+        });
+
+
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <!--header 파일에서 작업-->
+    <div id="header"></div>
+    <div id="section">
+        <form name="form" action="javascript:writePost();" method="post">
+            <div id="pageTitle">
+                게시물 등록
+                <hr>
+            </div>
+            <table>
+                <tr>
+                    <th>제목</th>
+                    <td><input id="title" name="title" class="inputBox" type="text" autocomplete='off'></td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td><textarea id="content" name="content" class="inputBox" autocomplete='off'></textarea></td>
+                </tr>
+                <tr>
+                    <th>사진 업로드</th>
+                    <td class="left"><input name="image" type="file" id="image" accept="image/*" multiple></td>
+                </tr>
+            </table>
+            <div class="button">
+                <button type="submit">등록</button>
+                <button type="button" onclick="location.href='../Board/StudyAbroad.html'">취소</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!--footer 파일에서 작업-->
+<div id="footer"></div>
+</body>
+</html>

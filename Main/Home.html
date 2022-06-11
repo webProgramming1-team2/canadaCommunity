@@ -169,7 +169,7 @@
                 }
                 for (let i = 0; i <= x; i++) {
                     immigrateStr += "<tr class='row'>";
-                    immigrateStr += "<td class=\"title\"><b><a href=\'../Board/ViewImmigration.html\' onclick=immigratePage("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
+                    immigrateStr += "<td class=\"title\"><b><a href=\'../Board/ViewImmigration.html\' onclick=page("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
                     immigrateStr += "<td class=\"date\"><b>" + sortedList[i]["date"] + "</b></td>";
                     immigrateStr += "</tr>";
                 }
@@ -192,7 +192,7 @@
 
                 for (let i = 0; i <= x; i++) {
                     studyAbroadStr += "<tr class='row'>";
-                    studyAbroadStr += "<td class=\"title\"><b><a href=\'../Board/ViewStudyAbroad.html\' onclick=StudyAbroadPage("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
+                    studyAbroadStr += "<td class=\"title\"><b><a href=\'../Board/ViewStudyAbroad.html\' onclick=page("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
                     studyAbroadStr += "<td class=\"date\"><b>" + sortedList[i]["date"] + "</b></td>";
                     studyAbroadStr += "</tr>";
                 }
@@ -216,7 +216,7 @@
 
                 for (let i = 0; i <= x; i++) {
                     livingStr += "<tr class='row'>";
-                    livingStr += "<td class=\"title\"><b><a href=\'../Board/ViewLiving.html\' onclick=livingPage("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
+                    livingStr += "<td class=\"title\"><b><a href=\'../Board/ViewLiving.html\' onclick=page("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
                     livingStr += "<td class=\"date\"><b>" + sortedList[i]["date"] + "</b></td>";
                     livingStr += "</tr>";
                 }
@@ -239,7 +239,7 @@
 
                 for (let i = 0; i <= x; i++) {
                     restaurantStr += "<tr class='row'>";
-                    restaurantStr += "<td class=\"title\"><b><a href=\'../Board/ViewRestaurant.html\' onclick= restaurantPage("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
+                    restaurantStr += "<td class=\"title\"><b><a href=\'../Board/ViewRestaurant.html\' onclick= page("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
                     restaurantStr += "<td class=\"date\"><b>" + sortedList[i]["date"] + "</b></td>";
                     restaurantStr += "</tr>";
                 }
@@ -262,7 +262,7 @@
 
                 for (let i = 0; i <= x; i++) {
                     generalStr += "<tr class='row'>";
-                    generalStr += "<td class=\"title\"><b><a href=\'../Board/ViewGeneral.html\' onclick=generalPage("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
+                    generalStr += "<td class=\"title\"><b><a href=\'../Board/ViewGeneral.html\' onclick=page("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
                     generalStr += "<td class=\"date\"><b>" + sortedList[i]["date"] + "</b></td>";
                     generalStr += "</tr>";
                 }
@@ -286,7 +286,7 @@
 
                 for (let i = 0; i <= x; i++) {
                     buyStr += "<tr class='row'>";
-                    buyStr += "<td class=\"title\"><b><a href=\'../Market/ViewBuy.html\' onclick=buyPage("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
+                    buyStr += "<td class=\"title\"><b><a href=\'../Market/ViewBuy.html\' onclick=page("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
                     buyStr += "<td class=\"date\"><b>" + sortedList[i]["date"] + "</b></td>";
                     buyStr += "</tr>";
                 }
@@ -310,7 +310,7 @@
 
                 for (let i = 0; i <= x; i++) {
                     sellStr += "<tr class='row'>";
-                    sellStr += "<td class=\"title\"><b><a href=\'../Market/ViewSell.html\' onclick=sellPage("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
+                    sellStr += "<td class=\"title\"><b><a href=\'../Market/ViewSell.html\' onclick=page("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
                     sellStr += "<td class=\"date\"><b>" + sortedList[i]["date"] + "</b></td>";
                     sellStr += "</tr>";
                 }
@@ -334,7 +334,7 @@
 
                 for (let i = 0; i <= x; i++) {
                     jobOfferStr += "<tr class='row'>";
-                    jobOfferStr += "<td class=\"title\"><b><a href=\'../Job/ViewJobOffer.html\' onclick=jobOfferPage("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
+                    jobOfferStr += "<td class=\"title\"><b><a href=\'../Job/ViewJobOffer.html\' onclick=page("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
                     jobOfferStr += "<td class=\"date\"><b>" + sortedList[i]["date"] + "</b></td>";
                     jobOfferStr += "</tr>";
                 }
@@ -358,7 +358,7 @@
 
                 for (let i = 0; i <= x; i++) {
                     jobSeekStr += "<tr class='row'>";
-                    jobSeekStr += "<td class=\"title\"><b><a href=\'../Job/ViewJobSeek.html\' onclick=jobSeekPage("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
+                    jobSeekStr += "<td class=\"title\"><b><a href=\'../Job/ViewJobSeek.html\' onclick=page("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
                     jobSeekStr += "<td class=\"date\"><b>" + sortedList[i]["date"] + "</b></td>";
                     jobSeekStr += "</tr>";
                 }
@@ -388,32 +388,8 @@
     function noticePage(num){
         localStorage.setItem("currentNoticePage", num - 1);
     }
-    function immigrationPage(num){
-        localStorage.setItem("currentImmigrationPage", num - 1);
-    }
-    function studyAbroadPage(num){
-        localStorage.setItem("currentStudyAbroadPage", num - 1);
-    }
-    function livingPage(num){
-        localStorage.setItem("currentLivingPage", num - 1);
-    }
-    function restaurantPage(num){
-        localStorage.setItem("currentRestaurantPage", num - 1);
-    }
-    function generalPage(num){
-        localStorage.setItem("currentGeneralPage", num - 1);
-    }
-    function buyPage(num){
-        localStorage.setItem("currentBuyPage", num - 1);
-    }
-    function sellPage(num){
-        localStorage.setItem("currentSellPage", num - 1);
-    }
-    function jobOfferPage(num){
-        localStorage.setItem("currentJobOfferPage", num - 1);
-    }
-    function jobSeekPage(num){
-        localStorage.setItem("currentJobSeekPage", num - 1);
+    function page(num){
+        localStorage.setItem("currentPage", num - 1);
     }
 </script>
 </html>
