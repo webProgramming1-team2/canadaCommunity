@@ -18,6 +18,9 @@
         xhttp.open("GET", "../Data/Immigration.json", true);
         xhttp.send();
 
+        function page(num){
+            localStorage.setItem("currentPage", num - 1);
+        }
         function readJson(jsonText) {
             let json = JSON.parse(jsonText); // String -> json으로 변환
 
@@ -33,10 +36,10 @@
             tblStr += "<th class=\"viewNum\"><b>조회수</b></th>";
             tblStr += "</tr>";
 
-            for (let i = list.length - 1; i >= 0; i--) {
-                tblStr += "<tr>";
+            for (let i = list.length-1; i >=0; i--) {
+                tblStr += "<tr class='row'>";
                 tblStr += "<td class=\"num\"><b>" + list[i]["num"] + "</b></td>";
-                tblStr += "<td class=\"title\"><b><a href=\'" + list[i]["num"] + "\'>" + list[i]["title"] + "</b></td>";
+                tblStr += "<td class=\"title\"><b><a href=\'../Board/ViewImmigration.html\' onclick=page("+list[i]["num"] +"); >" + list[i]["title"] + "</b></td>";
                 tblStr += "<td class=\"date\"><b>" + list[i]["date"] + "</b></td>";
                 tblStr += "<td class=\"writer\"><b>" + list[i]["writer"] + "</b></td>";
                 tblStr += "<td class=\"viewNum\"><b>" + list[i]["viewNum"] + "</b></td>";
@@ -46,11 +49,27 @@
             tblStr += "</table>";
         }
 
+        function search(){
+            const keyword=$(".inputBox").val();
+            const item=document.getElementsByClassName("row");
+
+            for(let i=0;i<item.length;i++){
+                let title=item[i].getElementsByClassName("title");
+                if(title[0].innerHTML.indexOf(keyword)>-1){
+                    item[i].style.display="";
+                }else item[i].style.display="none";
+            }
+        }
+
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
             $(document.getElementById("footer")).load("../Main/Footer.html");
-
-            $("#list").html(tblStr);
+            setTimeout(function (){
+                $("#list").html(tblStr);
+            },200);
+            if (localStorage.getItem("id")===null) {
+                $("#writeBtn").css("display", "none");
+            }
         });
     </script>
 </head>
@@ -59,17 +78,16 @@
 <div id="wrapper">
     <!--header 파일에서 작업-->
     <div id="header"></div>
-    <!--나중에 내용 넣기-->
     <div id="section">
         <div id="pageTitle">
             이민 게시판
         </div>
         <div class="search">
-            <input class="inputBox" type="text" maxlength="50" value=""/>
-            <input class="btn" type="button" value="검색" onclick=""/>
+            <input class="inputBox" type="text" maxlength="50"/>
+            <input class="btn" type="button" value="검색" onclick="search()"/>
         </div>
         <div class="writeBtn">
-            <button class="btn" onclick="location.href='../Notice/WriteImmigration.html'">글쓰기</button>
+            <button id="writeBtn" class="btn" onclick="location.href='../Board/WriteImmigration.html'">글쓰기</button>
         </div>
         <div id="list"></div>
     </div>

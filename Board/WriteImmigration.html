@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>캐모아 - 공지사항 작성</title>
+    <title>캐모아 - 이민 게시판 작성</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="../Board/WriteBoard.css">
     <script>
@@ -33,11 +33,11 @@
             let json = JSON.parse(jsonText); // String -> json으로 변환
 
             for (let i = 0; i < json.length; i++) {
-                noticeList.push(json[i]);
+                menuList.push(json[i]);
             }
         }
 
-        let noticeList = [];
+        let menuList = [];
         let xhttp = new XMLHttpRequest();
 
         xhttp.onreadystatechange = function () {
@@ -45,7 +45,7 @@
                 readJson(xhttp.responseText);
             }
         }
-        xhttp.open("GET", "../Data/Notice.json", true);
+        xhttp.open("GET", "../Data/Immigration.json", true);
         xhttp.send();
 
         function writePost() {
@@ -71,7 +71,7 @@
             const today=year+"-"+month+"-"+day;
 
             let post = {};
-            post.num=noticeList[noticeList.length-1].num+1;
+            post.num=menuList[menuList.length-1].num+1;
             post.title = title;
             post.date=today;
             post.writer=localStorage.getItem("name");
@@ -83,12 +83,12 @@
             post.comments=[];
 
 
-            $.getJSON("../Data/Notice.json", function (data) {
+            $.getJSON("../Data/Immigration.json", function (data) {
                 data.push(post);
-                new saveJson(data).download("application/json","Notice.json");
+                new saveJson(data).download("application/json","Immigration.json");
                 setTimeout(function (){
                     page(post.num);
-                    location.replace("../Notice/ViewNotice.html");
+                    location.replace("../Board/ViewImmigration.html");
                 },300);
             });
         }
@@ -136,7 +136,7 @@
             </table>
             <div class="button">
                 <button type="submit">등록</button>
-                <button type="button" onclick="location.href='../Notice/Notice.html'">취소</button>
+                <button type="button" onclick="location.href='../Board/Immigration.html'">취소</button>
             </div>
         </form>
     </div>
