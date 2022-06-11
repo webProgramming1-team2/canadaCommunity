@@ -4,14 +4,8 @@
     <meta charset="utf-8">
     <title>밴쿠버 한인 커뮤니티 캐모아</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<!--    <script src="https://kit.fontawesome.com/b809c6255e.js" crossorigin="anonymous"></script>-->
+    <!--    <script src="https://kit.fontawesome.com/b809c6255e.js" crossorigin="anonymous"></script>-->
     <link rel="stylesheet" href="../Main/Home.css">
-    <script>
-        $(document).ready(function () {
-            $(document.getElementById("header")).load("../Main/Header.html");
-            $(document.getElementById("footer")).load("../Main/Footer.html");
-        });
-    </script>
 </head>
 <body>
 <div id="wrapper">
@@ -27,28 +21,22 @@
                         <hr color="#c7d696">
                     </td>
                 </tr>
-            </table>
-            <table>
                 <tr>
-                    <td>
-                        <table width='100%'>
-                            <tr>
-                                <td width='100%'><a style='color:black;margin-left:5px;' href=''></a></td>
-                            </tr>
-                        </table>
+                    <td><a style='color:black;margin-left:5px;' href=''></a>
                         <hr color='#D5D5D5'>
                     </td>
                 </tr>
             </table>
-            <form id="noticeForm" action="../Notice/Notice_read.js" method="post">
-                <input type=hidden id="no" name="no" value=""> <input
-                    type=hidden name="page" value="1"> <input type=hidden name="searchColumn" value="title"> <input
-                    type=hidden name="keyword" value="">
-            </form>
         </div>
     </div>
 </div>
 <!--footer 파일에서 작업-->
 <div id="footer"></div>
 </body>
+<script>
+    $(document).ready(function () {
+        $(document.getElementById("header")).load("../Main/Header.html");
+        $(document.getElementById("footer")).load("../Main/Footer.html");
+    });
+</script>
 </html>

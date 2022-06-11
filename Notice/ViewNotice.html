@@ -2,185 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>캐모아 - 공지사항 작성</title>
+    <title>캐모아 - 공지사항</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="../Notice/ViewNotice.css">
-    <script type = "text/javascript">
-        
-        var num, title, date, writer, viewNum, content, image;
-        let accusation = [];
-        let recommend = [];
-        let comments = [];
-        
-        $.getJSON("../Data/Notice.json", function (data) {
-           
-                num = data[localStorage.getItem("currentNoticePage")].num;
-                title = data[localStorage.getItem("currentNoticePage")].title;
-                date = data[localStorage.getItem("currentNoticePage")].date;
-                writer = data[localStorage.getItem("currentNoticePage")].writer;
-                viewNum = data[localStorage.getItem("currentNoticePage")].viewNum;
-                content = data[localStorage.getItem("currentNoticePage")].content;
-                image = data[localStorage.getItem("currentNoticePage")].image;
-                accusation = data[localStorage.getItem("currentNoticePage")].accusation;
-                recommend = data[localStorage.getItem("currentNoticePage")].recommend;
-                comments = data[localStorage.getItem("currentNoticePage")].comments;
-        });
-        
-        let noticeList = [];
-        let tblStr = "<table>";
-        let cmtStr = "<table>" + "<colgroup><col style=\"width: 15%\">"+
-            "<col style=\"width: 60%\"><col style=\"width: 10%\"><col style=\"width: 5%\"></colgroup>";
-        let btnStr = "<table>";
-        let xhttp = new XMLHttpRequest();
 
-        xhttp.onreadystatechange = function () {
-            
-            if (xhttp.readyState === 4 && xhttp.status === 200) {
-                readJson(xhttp.responseText);
-            }
-        }
-        xhttp.open("GET", "../Data/Notice.json", true);
-        xhttp.send();
-        class saveJson {
-            // 클래스 생성자 초기화 실시
-            constructor(data = []) {
-                this.data = data;
-            }
-
-            // 파일 다운로드 수행 실시
-            download(type_of = "application/json", filename  = "Notice.json") { // 확장자명을 json 으로 지정
-
-                let txt = [];
-                txt.push(JSON.stringify(this.data, null, 2));
-                let body = document.body; // body 변수 선언
-                const a = document.createElement("a"); // a 태그 생성
-                a.href = URL.createObjectURL(new Blob(txt, {
-                    type: type_of
-                }));
-                a.setAttribute("download", filename); // a 태그에 다운로드 속성 추가
-                body.appendChild(a); // body에 a 태그 추가
-                a.click(); // 클릭 이벤트를 발생시켜 다운로드
-                body.removeChild(a); // body에서 제거
-            }
-        }
-
-
-        function readJson(jsonText) {
-            tblStr += "<tr>";
-            tblStr += "<td><b>" + content+ "</b></td>";
-            tblStr += "</tr>";
-            tblStr += "</table>";
-            
-            btnStr += "<tr>";
-            btnStr += "<td><b><input class=\"pagebtn\" type=\"button\" onclick=\"accusePost()\" id=\"accusation\" value=\"신고\">"+ accusation.length+"</b></td>";
-            btnStr += "<td><b><input class=\"pagebtn\" type=\"button\" onclick=\"recommendPost()\" id=\"recommend\" value=\"추천\">"+ recommend.length+"</b></td>";
-            btnStr += "</tr>";
-            btnStr += "</table>";
-
-            for(key in comments){
-                cmtStr += "<tr>";
-                cmtStr += "<td><b>" + comments[key].writer+"("+comments[key].id+")"+ "</b></td>";
-                cmtStr += "<td><b>" + comments[key].content+ "</b></td>";
-                cmtStr += "<td><b>" + comments[key].date+ "</b></td>";
-                if(comments[key].id === localStorage.getItem("id")){
-                    cmtStr += "<td><b><input class=\"pagebtn\" type=\"button\" onclick=\"deleteComments("+ key +")\" value=\"삭제\"></b></td>";
-                }else{
-                    cmtStr += "<td><b></b></td>";
-                }
-                cmtStr += "</tr>";
-            }
-            cmtStr += "</table>";
-        }
-
-        function writeComments(){
-            const date= new Date();
-            let year = date.getFullYear();
-            let month = date.getMonth()+1;
-            let day = date.getDate();
-            if(month<10) month="0"+month;
-            if(day<10) day="0"+day;
-            const today=year+"-"+month+"-"+day;
-            let comment = {
-                "writer": localStorage.getItem("name"),
-                "id": localStorage.getItem("id"),
-                "date": today,
-                "content":""
-                }  
-            const form = document.form;
-            var content = "";
-            var content_split = form.content.value.split('\n');
-            for(key in content_split){
-                content = content + content_split[key] + "<br>";
-            }
-            comment.content = content;
-            $.getJSON("../Data/Notice.json", function (data) {
-                    data[num-1].comments.push(comment);
-                    new saveJson(data).download();
-            });
-        }
-        function deleteComments(key){
-            let alt_comments = [];
-            var x = 0;
-            for(p in comments){
-                if(p != key){
-                    alt_comments[x] = comments[p];
-                    ++x;
-                }
-            }
-            
-
-            $.getJSON("../Data/Notice.json", function (data) {
-                    data[num-1].comments = alt_comments;
-                    new saveJson(data).download();
-            });
-        }
-
-        function accusePost(){
-            var q = false;
-            for(key in accusation){
-                if(accusation[key].id === localStorage.getItem("id")){
-                    q = true;
-                }
-            }
-            if(q){
-                alert("한 게시물에 신고는 한번만 할 수 있습니다.");
-            }else{
-                $.getJSON("../Data/Notice.json", function (data) {
-                    var userData = {"id": localStorage.getItem("id")}
-                    data[num-1].accusation.push(userData);
-                    new saveJson(data).download();
-                });
-            }
-        }
-        function recommendPost(){
-            var q = false;
-            for(key in recommend){
-                if(recommend[key].id === localStorage.getItem("id")){
-                    q = true;
-                }
-            }
-            if(q){
-                alert("한 게시물에 추천은 한번만 할 수 있습니다.");
-            }else{
-                $.getJSON("../Data/Notice.json", function (data) {
-                    var userData = {"id": localStorage.getItem("id")}
-                    data[num-1].recommend.push(userData);
-                    new saveJson(data).download();
-                });
-            }
-        }
-
-        $(document).ready(function () {
-            
-            $(document.getElementById("header")).load("../Main/Header.html");
-            $(document.getElementById("footer")).load("../Main/Footer.html");
-            $("#pageTitle").html(title);
-            $("#list").html(tblStr);
-            $("#btn").html(btnStr);
-            $("#comments").html(cmtStr);
-        });
-
-    </script>
 </head>
 <body>
     <div id="wrapper">
@@ -188,18 +13,22 @@
         <div id="header"></div>
         <div id="section">
             <form id = "form" name="form">
-            <div id="pageTitle"></div>
-            <div id="list"></div>
-            <div id="btn"></div>
-
-            <table>
-                <colgroup>
-                    <col style="width: 80%">
-                    <col style="width: 20%">
-                </colgroup>
-                <tr><td><textarea id="content" name="content" class="inputBox" autocomplete='off'></textarea></td>
-                    <td><input class="btn" type="button"  id="writeComment" onclick="writeComments()" value="작성"></td></tr>
-            </table>
+            <div id="pageTitle">
+                <div id="contentTitle"></div>
+                <div id="date"></div>
+                <div id="writer"></div>
+            </div>
+            <div id="content">
+                <textarea readonly id='contentText'></textarea>
+            </div>
+            <div id="btn">
+                <input class="pagebtn" type="button" onclick="accusePost()" id="accusation" value="신고"><span id="accuseText"></span>
+                <input class="pagebtn" type="button" onclick="recommendPost()" id="recommend" value="추천"><span id="recomText"></span>
+            </div>
+            <div>
+                <textarea id="writeCmt" name="writeCmt" class="inputBox" autocomplete='off'></textarea>
+                    <input class="btn" type="button"  id="writeCmtBtn" onclick="writeComments()" value="작성">
+            </div>
             <div id="comments"></div>
             </form>
         </div>
@@ -207,4 +36,176 @@
 <!--footer 파일에서 작업-->
 <div id="footer"></div>
 </body>
+<script type = "text/javascript">
+
+    let num, title, date, writer, content, image;
+    let accusation = [];
+    let recommend = [];
+    let comments = [];
+    let accLen,recLen;
+    $.getJSON("../Data/Notice.json", function (data) {
+        num = data[localStorage.getItem("currentNoticePage")].num;
+        title = data[localStorage.getItem("currentNoticePage")].title;
+        date = data[localStorage.getItem("currentNoticePage")].date;
+        writer = data[localStorage.getItem("currentNoticePage")].writer;
+        data[localStorage.getItem("currentNoticePage")].viewNum+=1;
+        content = data[localStorage.getItem("currentNoticePage")].content;
+        image = data[localStorage.getItem("currentNoticePage")].image;
+        accusation = data[localStorage.getItem("currentNoticePage")].accusation;
+        recommend = data[localStorage.getItem("currentNoticePage")].recommend;
+        comments = data[localStorage.getItem("currentNoticePage")].comments;
+        accLen=accusation.length;
+        recLen=recommend.length;
+        new saveJson(data).download();
+    });
+
+    let cmtStr = "<table>" + "<colgroup><col style=\"width: 15%\">"+
+        "<col style=\"width: 60%\"><col style=\"width: 10%\"><col style=\"width: 5%\"></colgroup>";
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            readJson(xhttp.responseText);
+        }
+    }
+    xhttp.open("GET", "../Data/Notice.json", true);
+    xhttp.send();
+    class saveJson {
+        // 클래스 생성자 초기화 실시
+        constructor(data = []) {
+            this.data = data;
+        }
+
+        // 파일 다운로드 수행 실시
+        download(type_of = "application/json", filename  = "Notice.json") { // 확장자명을 json 으로 지정
+
+            let txt = [];
+            txt.push(JSON.stringify(this.data, null, 2));
+            let body = document.body; // body 변수 선언
+            const a = document.createElement("a"); // a 태그 생성
+            a.href = URL.createObjectURL(new Blob(txt, {
+                type: type_of
+            }));
+            a.setAttribute("download", filename); // a 태그에 다운로드 속성 추가
+            body.appendChild(a); // body에 a 태그 추가
+            a.click(); // 클릭 이벤트를 발생시켜 다운로드
+            body.removeChild(a); // body에서 제거
+        }
+    }
+
+
+    function readJson() {
+        for(const key in comments){
+            cmtStr += "<tr>";
+            cmtStr += "<td><b>" + comments[key].writer+"("+comments[key].id+")"+ "</b></td>";
+            cmtStr += "<td>" + comments[key].content+ "</td>";
+            cmtStr += "<td>" + comments[key].date+ "</td>";
+            if(comments[key].id === localStorage.getItem("id")){
+                cmtStr += "<td><b><input class=\"pagebtn\" type=\"button\" onclick=\"deleteComments("+ key +")\" value=\"삭제\"></b></td>";
+            }else{
+                cmtStr += "<td><b></b></td>";
+            }
+            cmtStr += "</tr>";
+        }
+        cmtStr += "</table>";
+    }
+
+    function writeComments(){
+        const date= new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let day = date.getDate();
+        if(month<10) month="0"+month;
+        if(day<10) day="0"+day;
+        const today=year+"-"+month+"-"+day;
+        let comment = {
+            "writer": localStorage.getItem("name"),
+            "id": localStorage.getItem("id"),
+            "date": today,
+            "content":""
+        }
+        const form = document.form;
+        let content = "";
+        const content_split = form.writeCmt.value.split('\n');
+        for(const key in content_split){
+            content = content + content_split[key] + "<br>";
+        }
+        comment.content = content;
+        $.getJSON("../Data/Notice.json", function (data) {
+            data[num-1].comments.push(comment);
+            new saveJson(data).download();
+            setTimeout(function (){
+                location.reload();
+            },500);
+        });
+    }
+    function deleteComments(key){
+        comments.splice(key,1);
+
+        $.getJSON("../Data/Notice.json", function (data) {
+            data[num-1].comments = comments;
+            new saveJson(data).download();
+            setTimeout(function (){
+                location.reload();
+            },500);
+        });
+    }
+
+    let isAccused = false;
+
+    function accusePost(){
+        for(const key in accusation){
+            if(accusation[key].id === localStorage.getItem("id")){
+                isAccused = true;
+            }
+        }
+        if(isAccused){
+            alert("한 게시물에 신고는 한번만 할 수 있습니다.");
+        }else{
+            $.getJSON("../Data/Notice.json", function (data) {
+                $("#accuseText").html(accLen+1);
+                var userData = {"id": localStorage.getItem("id")}
+                data[num-1].accusation.push(userData);
+                isAccused = true;
+                new saveJson(data).download();
+            });
+        }
+    }
+
+    let isRecommended = false;
+
+    function recommendPost(){
+        for(const key in recommend){
+            if(recommend[key].id === localStorage.getItem("id")){
+                isRecommended = true;
+            }
+        }
+        if(isRecommended){
+            alert("한 게시물에 추천은 한번만 할 수 있습니다.");
+        }else{
+            $.getJSON("../Data/Notice.json", function (data) {
+                $("#recomText").html(recLen+1);
+                var userData = {"id": localStorage.getItem("id")}
+                data[num-1].recommend.push(userData);
+                isRecommended = true;
+                new saveJson(data).download();
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        $(document.getElementById("header")).load("../Main/Header.html");
+        $(document.getElementById("footer")).load("../Main/Footer.html");
+        setTimeout(function (){
+            $("#contentTitle").html(title);
+            $("#writer").html(writer);
+            $("#date").html(date);
+            $("#contentText").text(content);
+            $("#accuseText").html(accLen);
+            $("#recomText").html(recLen);
+            $("#comments").html(cmtStr);
+        },500);
+    });
+
+</script>
 </html>

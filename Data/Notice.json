@@ -4,7 +4,7 @@
     "title": "첫번째 공지사항",
     "date": "2022-05-30",
     "writer": "관리자",
-    "viewNum": 0,
+    "viewNum": 4,
     "content": "안녕하세요",
     "image": null,
     "accusation": [
@@ -15,6 +15,9 @@
     "recommend": [
       {
         "id": "13"
+      },
+      {
+        "id": "psycsh"
       }
     ],
     "comments": [
@@ -61,17 +64,23 @@
     "title": "두번째 공지사항",
     "date": "2022-05-31",
     "writer": "관리자",
-    "viewNum": 1,
-    "content": "가나다라<br>마바사",
+    "viewNum": 17,
+    "content": "가나다라\n마바사",
     "image": null,
     "accusation": [
       {
         "id": "12"
+      },
+      {
+        "id": "psycsh"
       }
     ],
     "recommend": [
       {
         "id": "13"
+      },
+      {
+        "id": "psycsh"
       }
     ],
     "comments": [
