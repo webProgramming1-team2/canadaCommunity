@@ -51,6 +51,9 @@
             $(document.getElementById("footer")).load("../Main/Footer.html");
 
             $("#list").html(tblStr);
+            if (localStorage.getItem("id")===null) {
+                $("#writeBtn").css("display", "none");
+            }
         });
         function page(num){
             localStorage.setItem("currentLivingPage", num - 1);
@@ -72,7 +75,7 @@
                 <input class="btn" type="button" value="검색" onclick=""/>
             </div>
             <div class="writeBtn">
-                <button class="btn" onclick="location.href='../Board/WriteLiving.html'">글쓰기</button>
+                <button id="writeBtn" class="btn" onclick="location.href='../Board/WriteLiving.html'">글쓰기</button>
             </div>
             <div id="list"></div>
         </div>
