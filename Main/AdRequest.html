@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>캐모아 - 광고 문의</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <link rel="stylesheet" href="../Main/Home.css">
+    
     <script>
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
@@ -15,9 +15,56 @@
 <body>
 <div id="wrapper">
     <!--header 파일에서 작업-->
-    <div id="header"></div>
-    <div id="section">
+    <div id="header">
 
+    </div>
+    <div id="section">
+        <h1 class="content-head is-center">광고 문의</h1>
+  <aside>
+       <p>
+           광고 문의를 원하시면 양식에 맞춰 이메일을 보내주세요!
+       </p>
+   </aside>
+
+
+   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+   
+   <link rel="stylesheet" href="../Main/AdRequest.css">
+
+  <form class="gform pure-form pure-form-stacked" method="POST" data-email="kimbychan123@gmail.com"
+  action="https://script.google.com/macros/s/AKfycbzluuqfk9CXxkL5IcWK42LWJ6ETukk-gkiZR6-H/exec">
+    <!-- change the form action to your script url -->
+
+    <div class="form-elements">
+      <fieldset class="pure-group">
+        <label for="name">이름 : </label>
+        <input id="name" name="name" placeholder="이름을 입력해주세요" />
+      </fieldset>
+
+      <fieldset class="pure-group">
+        <label for="contactpoint">연락처 : </label>
+        <input id="contactpoint" name="contactpoint" value=""
+        required placeholder="연락처를 000-0000-000 형식으로 입력해주세요"/> 
+      </fieldset>
+
+      <fieldset class="pure-group">
+        <label for="message">내용 : </label>
+        <textarea id="message" name="message" rows="10"
+        placeholder="문의할 광고에 대한 내용을 입력해주세요"></textarea>
+      </fieldset>
+
+
+      <button class="button-success pure-button button-xlarge">
+        <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+    </div>
+
+    <div class="thankyou_message" style="display:none;">
+      <h2>연락해주셔서 감사합니다.
+        빠른 시일 내에 연락드리겠습니다.</h2>
+    </div>
+
+  </form>
     </div>
 </div>
 <!--footer 파일에서 작업-->
