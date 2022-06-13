@@ -4,7 +4,7 @@
     "title": "첫번째 공지사항",
     "date": "2022-05-30",
     "writer": "관리자",
-    "viewNum": 9,
+    "viewNum": 11,
     "content": "안녕하세요",
     "image": null,
     "accusation": [
@@ -67,7 +67,7 @@
     "title": "두번째 공지사항",
     "date": "2022-05-31",
     "writer": "관리자",
-    "viewNum": 77,
+    "viewNum": 78,
     "content": "가나다라\n마바사",
     "image": null,
     "accusation": [
@@ -159,6 +159,18 @@
     "writer": "한인단체",
     "viewNum": 3,
     "content": "1325325235",
+    "image": null,
+    "accusation": [],
+    "recommend": [],
+    "comments": []
+  },
+  {
+    "num": 5,
+    "title": "jdjjd",
+    "date": "2022-06-13",
+    "writer": "관리자",
+    "viewNum": 1,
+    "content": "jdjdjdj",
     "image": null,
     "accusation": [],
     "recommend": [],

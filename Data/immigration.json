@@ -4,7 +4,7 @@
     "title": "첫번째 공지사항",
     "date": "2022-05-30",
     "writer": "관리자",
-    "viewNum": 10,
+    "viewNum": 11,
     "content": "안녕하세요",
     "image": null,
     "accusation": [
@@ -67,7 +67,7 @@
     "title": "두번째 공지사항",
     "date": "2022-05-31",
     "writer": "관리자",
-    "viewNum": 78,
+    "viewNum": 82,
     "content": "가나다라\n마바사",
     "image": null,
     "accusation": [
@@ -81,6 +81,9 @@
     "recommend": [
       {
         "id": "13"
+      },
+      {
+        "id": "admin"
       }
     ],
     "comments": [

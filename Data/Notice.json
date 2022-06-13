@@ -4,7 +4,7 @@
     "title": "첫번째 공지사항",
     "date": "2022-05-30",
     "writer": "관리자",
-    "viewNum": 9,
+    "viewNum": 11,
     "content": "안녕하세요",
     "image": null,
     "accusation": [
@@ -15,6 +15,9 @@
     "recommend": [
       {
         "id": "13"
+      },
+      {
+        "id": "admin"
       }
     ],
     "comments": [
@@ -67,7 +70,7 @@
     "title": "두번째 공지사항",
     "date": "2022-05-31",
     "writer": "관리자",
-    "viewNum": 77,
+    "viewNum": 83,
     "content": "가나다라\n마바사",
     "image": null,
     "accusation": [
@@ -81,6 +84,9 @@
     "recommend": [
       {
         "id": "13"
+      },
+      {
+        "id": "admin"
       }
     ],
     "comments": [
@@ -127,7 +133,7 @@
     "title": "sdghsdh",
     "date": "2022-06-11",
     "writer": "관리자",
-    "viewNum": 12,
+    "viewNum": 13,
     "content": "dfhjfggggggg\n\njjjjjjjk\n\n\nhklk",
     "image": null,
     "accusation": [
@@ -169,7 +175,7 @@
     "title": "1234535",
     "date": "2022-06-11",
     "writer": "한인단체",
-    "viewNum": 8,
+    "viewNum": 9,
     "content": "1325325235",
     "image": null,
     "accusation": [],
@@ -181,7 +187,7 @@
     "title": "한인단체 공지사항",
     "date": "2022-06-11",
     "writer": "한인단체",
-    "viewNum": 8,
+    "viewNum": 12,
     "content": "1325325235",
     "image": null,
     "accusation": [],
