@@ -9,25 +9,7 @@
     "accusation": 3
   },
   {
-    "name": "1222223",
-    "id": "12",
-    "passwd": "12",
-    "phoneNum": "010-99-99",
-    "gender": "male",
-    "organization": false,
-    "accusation": 11
-  },
-  {
-    "name": "aaa",
-    "id": "asa",
-    "passwd": "qaw",
-    "phoneNum": "010-333-221",
-    "gender": "female",
-    "organization": false,
-    "accusation": 0
-  },
-  {
-    "name": "seo",
+    "name": "서연",
     "id": "psycsh",
     "passwd": "1234",
     "phoneNum": "010-1234-2345",
@@ -43,5 +25,14 @@
     "gender": "female",
     "organization": true,
     "accusation": 0
+  },
+  {
+    "name": "bad",
+    "id": "bad",
+    "passwd": "1234",
+    "phoneNum": "010-1234-2345",
+    "gender": "male",
+    "organization": false,
+    "accusation": 11
   }
 ]

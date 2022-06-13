@@ -1,0 +1,65 @@
+[
+  {
+    "num": 1,
+    "title": "첫번째 공지사항",
+    "date": "2022-05-30",
+    "writer": "관리자",
+    "viewNum": 9,
+    "content": "안녕하세요",
+    "image": null,
+    "accusation": [
+      {
+        "id": "12"
+      }
+    ],
+    "recommend": [
+      {
+        "id": "13"
+      }
+    ],
+    "comments": [
+      {
+        "writer": "관리자",
+        "id": "ksa211",
+        "date": "2022-05-30",
+        "content": "<br>ㄴ<br><br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "1<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "2<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "3<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "4<br>"
+      },
+      {
+        "writer": "1222223",
+        "id": "12",
+        "date": "2022-06-08",
+        "content": "5<br>"
+      },
+      {
+        "writer": "seo",
+        "id": "psycsh",
+        "date": "2022-06-11",
+        "content": "sgsdg<br>"
+      }
+    ]
+  }
+]
