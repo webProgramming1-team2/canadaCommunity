@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>캐모아 - 밴쿠버 생활 게시판</title>
+    <title>캐모아 - 벤쿠버 생활게시판</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="../Board/Board.css">
     <script>
@@ -18,6 +18,9 @@
         xhttp.open("GET", "../Data/Living.json", true);
         xhttp.send();
 
+        function page(num){
+            localStorage.setItem("currentPage", num - 1);
+        }
         function readJson(jsonText) {
             let json = JSON.parse(jsonText); // String -> json으로 변환
 
@@ -28,13 +31,13 @@
             tblStr += "<tr>";
             tblStr += "<th class=\"num\"><b>번호</b></th>";
             tblStr += "<th class=\"title\"><b>제목</b></th>";
-            tblStr += "<th class=\"date\"><b>작성일</b></th>";
+            tblStr += "<th class=\"date\"><b>작성일</b></th>"
             tblStr += "<th class=\"writer\"><b>작성자</b></th>";
             tblStr += "<th class=\"viewNum\"><b>조회수</b></th>";
             tblStr += "</tr>";
 
-            for (let i = list.length - 1; i >= 0; i--) {
-                tblStr += "<tr>";
+            for (let i = list.length-1; i >=0; i--) {
+                tblStr += "<tr class='row'>";
                 tblStr += "<td class=\"num\"><b>" + list[i]["num"] + "</b></td>";
                 tblStr += "<td class=\"title\"><b><a href=\'../Board/ViewLiving.html\' onclick=page("+list[i]["num"] +"); >" + list[i]["title"] + "</b></td>";
                 tblStr += "<td class=\"date\"><b>" + list[i]["date"] + "</b></td>";
@@ -46,41 +49,50 @@
             tblStr += "</table>";
         }
 
+        function search(){
+            const keyword=$(".inputBox").val();
+            const item=document.getElementsByClassName("row");
+
+            for(let i=0;i<item.length;i++){
+                let title=item[i].getElementsByClassName("title");
+                if(title[0].innerHTML.indexOf(keyword)>-1){
+                    item[i].style.display="";
+                }else item[i].style.display="none";
+            }
+        }
+
         $(document).ready(function () {
             $(document.getElementById("header")).load("../Main/Header.html");
             $(document.getElementById("footer")).load("../Main/Footer.html");
-
-            $("#list").html(tblStr);
+            setTimeout(function (){
+                $("#list").html(tblStr);
+            },200);
             if (localStorage.getItem("id")===null) {
                 $("#writeBtn").css("display", "none");
             }
         });
-        function page(num){
-            localStorage.setItem("currentLivingPage", num - 1);
-        }
     </script>
 </head>
 
 <body>
-    <div id="wrapper">
-        <!--header 파일에서 작업-->
-        <div id="header"></div>
-        <!--나중에 내용 넣기-->
-        <div id="section">
-            <div id="pageTitle">
-                밴쿠버 생활 게시판
-            </div>
-            <div class="search">
-                <input class="inputBox" type="text" maxlength="50" value=""/>
-                <input class="btn" type="button" value="검색" onclick=""/>
-            </div>
-            <div class="writeBtn">
-                <button id="writeBtn" class="btn" onclick="location.href='../Board/WriteLiving.html'">글쓰기</button>
-            </div>
-            <div id="list"></div>
+<div id="wrapper">
+    <!--header 파일에서 작업-->
+    <div id="header"></div>
+    <div id="section">
+        <div id="pageTitle">
+            벤쿠버 생활 게시판
         </div>
+        <div class="search">
+            <input class="inputBox" type="text" maxlength="50"/>
+            <input class="btn" type="button" value="검색" onclick="search()"/>
+        </div>
+        <div class="writeBtn">
+            <button id="writeBtn" class="btn" onclick="location.href='../Board/WriteLiving.html'">글쓰기</button>
+        </div>
+        <div id="list"></div>
     </div>
-    <!--footer 파일에서 작업-->
-    <div id="footer"></div>
-    </body>
-    </html>
+</div>
+<!--footer 파일에서 작업-->
+<div id="footer"></div>
+</body>
+</html>
