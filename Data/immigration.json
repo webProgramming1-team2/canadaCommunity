@@ -1,16 +1,14 @@
 [
   {
     "num": 1,
-    "title": "첫번째 공지사항",
-    "date": "2022-05-30",
-    "writer": "관리자",
-    "viewNum": 10,
-    "content": "안녕하세요",
+    "title": "유학후에 이민을 고민중입니다.",
+    "date": "2022-05-29",
+    "writer": "김성집",
+    "viewNum": 24,
+    "content": "안녕하세요. 내년 1월이나 9월에 졸업 후 이민을 알아보고 있는 중입니다.\n그런데 컬럼비아 주 특정 학교와 학과를 졸업해야 하는 것으로 알고 있는데, 정확한 기준을 알 수 있을까요?",
     "image": null,
     "accusation": [
-      {
-        "id": "12"
-      }
+
     ],
     "recommend": [
       {
@@ -19,47 +17,83 @@
     ],
     "comments": [
       {
-        "writer": "관리자",
-        "id": "ksa211",
-        "date": "2022-05-30",
-        "content": "<br>ㄴ<br><br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "1<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "2<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "3<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "4<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "5<br>"
-      },
-      {
-        "writer": "seo",
-        "id": "psycsh",
-        "date": "2022-06-11",
-        "content": "sgsdg<br>"
+        "writer": "홍가영",
+        "id": "hky1231",
+        "date": "2022-05-29",
+        "content": "저도 그렇게 알고 있어요."
       }
+    ]
+  },
+  {
+    "num": 2,
+    "title": "영주권 질문",
+    "date": "2022-05-30",
+    "writer": "오현준",
+    "viewNum": 16,
+    "content": "영주권에 대해서 궁금한게 있어 질문 드립니다.\n영주권을 쉽게 따려면 BC PNP, Express Entry 어느 쪽이 나을지 궁금합니다.",
+    "image": null,
+    "accusation": [
+    ],
+    "recommend": [
+      {
+        "id": "kss11"
+      }
+    ],
+    "comments": [
+      {
+        "writer": "Jack",
+        "id": "jack3240",
+        "date": "2022-05-30",
+        "content": "개인 스펙이나 조건에 따라서 조금씩 다릅니다."
+      }
+    ]
+  },
+  {
+    "num": 3,
+    "title": "영주권 가능할까요?",
+    "date": "2022-05-30",
+    "writer": "조성일",
+    "viewNum": 38,
+    "content": "해외 경력이나 캐나다 경력이 전혀 없는 상황입니다. \n영어 점수나 학교 졸업은 문제 없지만, 아무런 경력이 없어 걱정입니다. 괜찮을까요?",
+    "image": null,
+    "accusation": [
+    ],
+    "recommend": [
+      {
+        "id": "llss2913"
+      }
+    ],
+    "comments": [
+    ]
+  },
+  {
+    "num": 4,
+    "title": "증명서 어떤게 필요한가요?",
+    "date": "2022-05-30",
+    "writer": "하승균",
+    "viewNum": 22,
+    "content": "영주권 지원시에 추가서류로 병력증명서를 요구한다는 얘기를 들었습니다 \n제가 알던 내용과 좀 달라서 여기에 여쭤봅니다.",
+    "image": null,
+    "accusation": [
+    ],
+    "recommend": [
+    ],
+    "comments": [
+    ]
+  },
+  {
+    "num": 5,
+    "title": "워킹홀리데이 질문드립니다.",
+    "date": "2022-05-31",
+    "writer": "황동연",
+    "viewNum": 10,
+    "content": "워킹홀리데이 신청 후에 비자가 나오는데 까지 얼마나 걸릴까요?",
+    "image": null,
+    "accusation": [
+    ],
+    "recommend": [
+    ],
+    "comments": [
     ]
   },
   {
