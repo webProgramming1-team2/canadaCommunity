@@ -1,65 +1,46 @@
 [
   {
     "num": 1,
-    "title": "첫번째 공지사항",
-    "date": "2022-05-30",
+    "title": "[공지사항] 커뮤니티 이용 제재 사항 공지",
+    "date": "2022-06-01",
     "writer": "관리자",
-    "viewNum": 9,
-    "content": "안녕하세요",
+    "viewNum": 4,
+    "content": "운영 규정상 커뮤니티에 분란성 글을 올리는 것은 임의로 제재를 취하겠습니다. \n분란을 일으킬 수 있는 내용은 다음과 같습니다. \n\n- 과도한 욕설로 이용자들을 불편하게 하는 이용자는 차단됩니다.\n\n- 분쟁성 행위(지역 비하발언, 고인 비하발언) 등을 금지합니다.\n\n- 개인정보를 요구하거나, 개인정보를 공개하는 경우는 게시물이 즉시 삭제 조치됩니다.\n\n- 커뮤니티에서 종교를 홍보하는 게시물은 즉시 삭제 조치됩니다.\n\n- 상업적 마케팅으로 연관된 주제를 올리는 행위를 금지합니다.\n\n- 불법촬영물을 공유 및 게시하는 경우 이용자는 즉시 차단됩니다.",
+    "image": null,
+    "accusation": [],
+    "recommend": [],
+    "comments": []
+  },
+  {
+    "num": 2,
+    "title": "[공지사항] 악성 유저 제재 안내",
+    "date": "2022-06-02",
+    "writer": "관리자",
+    "viewNum": 1,
+    "content": "커뮤니티 규정을 위반한 사용자를 제재했습니다.\n규정을 지켜 건전한 커뮤니티를 이용할 수 있도록 합시다.\n\n\nqwe***39 : 상업적 마케팅\nllI***lI: 지역 비하발언으로 분탕\nir***an : 지속적인 욕설\nfn1l***hd: 지속적인 욕설\nqbdt***23 : 불법촬영물 게시\nro5***ls: 범죄 공모\nfhtus***ma: 혐오적인 내용이 포함된 게시물(신고누적)\nvkdn***0j: 성인물 게시\n\n위의 사용자들을 규정위반 및 악성유저로 판단하여 제재합니다.",
+    "image": null,
+    "accusation": [],
+    "recommend": [],
+    "comments": []
+  },
+  {
+    "num": 3,
+    "title": "가평전투70주년 손글씨쓰기 캠페인",
+    "date": "2022-06-14",
+    "writer": "주밴쿠버총영사관",
+    "viewNum": 6,
+    "content": "ㅇ 주밴쿠버총영사관은 총영사관 인스타그램(kcultureinvan)을 통해 #손글씨가평전투70주년 캠페인을 진행하고 있습니다.\n\nㅇ 멋진 손글씨 사진(또는 영상)을 찍어 주신 분들 중, 15명을 선정하여 $50 아마존 e기프트 카드를 보내드릴 예정이오니, 관심 있는 많은 분들의 참여 바랍니다.\n\nㅇ 참여 방법 및 자세한 내용은 아래 총영사관 인스타그램 kcultureinvan 을 방문하시거나 링크를 클릭해주세요 ↓↓↓\n\n-    총영사관 인스타그램 포스팅\nhttps://www.instagram.com/p/CMiXcb9pa-q/?utm_source=ig_web_copy_link&fbclid=IwAR0vhNf_rGPLNvWN9Jr0a-qlypSBPNFEdA6ja3ZFcGB2lRzjpu_olTu0ZKM",
     "image": null,
     "accusation": [
       {
-        "id": "12"
+        "id": "admin"
       }
     ],
     "recommend": [
       {
-        "id": "13"
+        "id": "admin"
       }
     ],
-    "comments": [
-      {
-        "writer": "관리자",
-        "id": "ksa211",
-        "date": "2022-05-30",
-        "content": "<br>ㄴ<br><br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "1<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "2<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "3<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "4<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "5<br>"
-      },
-      {
-        "writer": "seo",
-        "id": "psycsh",
-        "date": "2022-06-11",
-        "content": "sgsdg<br>"
-      }
-    ]
+    "comments": []
   }
 ]

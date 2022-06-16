@@ -21,7 +21,7 @@
         xhttp.send();
 
         function page(num){
-            localStorage.setItem("currentNoticePage", num - 1);
+            localStorage.setItem("currentPage", num - 1);
         }
         function readJson(jsonText) {
             let json = JSON.parse(jsonText); // String -> json으로 변환
