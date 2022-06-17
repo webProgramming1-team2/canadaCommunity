@@ -4,20 +4,18 @@
     "title": "한달에 생활비 얼마나 쓰세요?",
     "date": "2022-05-30",
     "writer": "최관우",
-    "viewNum": 15,
+    "viewNum": 16,
     "content": "저는 한달에 식비로는 400불, 차비 350불 렌트비 500불에 식비 생활비 다 합쳐서 2000불은 쓰는 것 같은데, \n 다른분들은 얼마나 쓰는지 궁급합니다.",
     "image": null,
-    "accusation": [
-    ],
-    "recommend": [
-    ],
+    "accusation": [],
+    "recommend": [],
     "comments": [
       {
         "writer": "강서인",
         "id": "ksi5554",
         "date": "2022-05-30",
         "content": "렌트 700에 나머지 다 합쳐서 3000불은 나오는 것 같아요."
-      }, 
+      },
       {
         "writer": "김태영",
         "id": "jhu984",
@@ -34,8 +32,7 @@
     "viewNum": 20,
     "content": "매일 매일 학교, 아르바이트, 집 이것만 반복하고 있습니다... 하루종일 쉬지도 못하고... \n처음엔 그럭저럭 견딜만 헀는데 이젠 너무 힘들어요 ㅠㅠ ",
     "image": null,
-    "accusation": [
-    ],
+    "accusation": [],
     "recommend": [
       {
         "id": "playst2344"
@@ -50,8 +47,7 @@
         "id": "kss9483"
       }
     ],
-    "comments": [
-    ]
+    "comments": []
   },
   {
     "num": 3,
@@ -61,24 +57,19 @@
     "viewNum": 8,
     "content": "이번에 벤쿠버로 대학 다닐 것 같은데, 다른 대학생분들은 통학을 어떻게 하시는지 궁금해요",
     "image": null,
-    "accusation": [
-    ],
-    "recommend": [
-      
-    ],
-    "comments": [
-    ]
+    "accusation": [],
+    "recommend": [],
+    "comments": []
   },
   {
     "num": 4,
     "title": "같이 게임 하실분 없나요",
     "date": "2022-05-30",
     "writer": "김준영",
-    "viewNum": 22,
+    "viewNum": 23,
     "content": "롤이나 아무거나 괜찮습니다. 맨날 혼자하려니까 외로워서.....",
     "image": null,
-    "accusation": [
-    ],
+    "accusation": [],
     "recommend": [
       {
         "id": "13"
@@ -101,12 +92,9 @@
     "viewNum": 17,
     "content": "유학을 준비하고 있는 학생입니다. \n가면 혼자가게 될 것 같아서, 아는 사람 하나 없는 곳에서 생활하게 되는게 너무 걱정인데 \n캐나다에서 친구 사귈 수 있는 방법 좀 알려주세요!",
     "image": null,
-    "accusation": [
-    ],
-    "recommend": [
-    ],
-    "comments": [
-    ]
+    "accusation": [],
+    "recommend": [],
+    "comments": []
   },
   {
     "num": 6,
@@ -116,11 +104,8 @@
     "viewNum": 21,
     "content": "요즘 집에 틀어박혀서 공부만 하려니까 너무 지치더라고요. \n원래는 영화보는거 좋아했는데, 뭔가 새로운거 해보고 싶어서 한번 여쭤봅니다.",
     "image": null,
-    "accusation": [
-    ],
-    "recommend": [
-      
-    ],
+    "accusation": [],
+    "recommend": [],
     "comments": [
       {
         "writer": "박서진",

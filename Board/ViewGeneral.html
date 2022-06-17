@@ -237,6 +237,10 @@
             $("#accuseText").html(accLen);
             $("#recomText").html(recLen);
             $("#comments").html(cmtStr);
+            let textarea=document.getElementById("contentText")
+            console.log(textarea.scrollHeight);
+            const height=textarea.scrollHeight+8;
+            textarea.style.height=height+'px';
         },200);
         if (localStorage.getItem("name")!==writer&&"admin" !== localStorage.getItem("id")) {
             $("#delete").css("display", "none");

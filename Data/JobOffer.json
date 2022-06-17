@@ -1,65 +1,62 @@
 [
   {
     "num": 1,
-    "title": "첫번째 공지사항",
-    "date": "2022-05-30",
-    "writer": "관리자",
-    "viewNum": 9,
-    "content": "안녕하세요",
+    "title": "한옥레스토랑에서 서버구합니다 :)",
+    "date": "2022-06-03",
+    "writer": "Alex",
+    "viewNum": 2,
+    "content": "직종 : 서비스직\n연락처 : 604-603-6528\n\n리치몬드 Alexandra Road에 위치한 한식당 한옥에서 서버분 구합니다 ! 관심있는 분들은 언제든지 연락주세요",
     "image": null,
-    "accusation": [
-      {
-        "id": "12"
-      }
-    ],
-    "recommend": [
-      {
-        "id": "13"
-      }
-    ],
-    "comments": [
-      {
-        "writer": "관리자",
-        "id": "ksa211",
-        "date": "2022-05-30",
-        "content": "<br>ㄴ<br><br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "1<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "2<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "3<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "4<br>"
-      },
-      {
-        "writer": "1222223",
-        "id": "12",
-        "date": "2022-06-08",
-        "content": "5<br>"
-      },
-      {
-        "writer": "seo",
-        "id": "psycsh",
-        "date": "2022-06-11",
-        "content": "sgsdg<br>"
-      }
-    ]
+    "accusation": [],
+    "recommend": [],
+    "comments": []
+  },
+  {
+    "num": 2,
+    "title": "UBC/KITSILANO에 위치한 the kitchen dada에서 서버/스시쉐프/주방쉐프 구인합니다 (그룹 베네핏지원)",
+    "date": "2022-06-06",
+    "writer": "kitchen",
+    "viewNum": 1,
+    "content": "직종 : 서비스직, 셰프\n연락처 : 778 888 9007\n\n키칠라노/유비씨에 위치한 일식 레스토랑 the kitchen dada 에서 풀타임/파트타임   \n\n스시 쉐프 (경력 2년이상)\n\n핫푸드 쉐프 (경력 2년이상) 구인합니다 (LMIA 지원가능합니다)\n\n서버 (경력 없으셔도 됩니다!) 4~5일 정도 파트타임 \n\n \n\n시급은 경력에 따라 대우 해드립니다!\n\n \n\n풀타임 점심/저녁 제공이구요\n\n파트타임으로 하실경우엔 점심 혹은 저녁 제공해드립니다! \n\n \n\n6개월 이상 근무시 그룹보험 적용됩니다 (덴탈/헬스케어/비젼 등등)\n\n \n\n99번과 9번, 7번 그리고 14번 버스정류장이 바로앞이라 교통편이 좋은편입니다\n\n\nthe kitchen dada sushi bar & grill\nthekitchendada@gmail.com\n\nwww.thekitchendada.com\n2535 alma street , Vancouver, BC, V6R3R8\n778 888 9007 \n\n\n이력서를 thekitchendada@gmail.com  으로 보내주시길 바랍니다!\n\n \n\n전화 문자 혹은 메일로 간단한 소개와 함께 연락부탁드립니다\n감사합니다",
+    "image": null,
+    "accusation": [],
+    "recommend": [],
+    "comments": []
+  },
+  {
+    "num": 3,
+    "title": "Graphic Designer 채용공고",
+    "date": "2022-06-06",
+    "writer": "그리픽",
+    "viewNum": 2,
+    "content": "직종 : 기술직\n연락처 : careers@onikon.com\n\n자격요건\n- 팀원들과 원활한 커뮤니케이션 스킬\n- 이메일, 전화 등 의사소통이 가능한 영어 실력\n- 합법적인 비자 또는 LMIA 지원 희망자\n- Adobe 및 Design Tool 활용 능력자\n\n급여\n- 기본 수습기간 3개월(기본급여)/이후 숙련도에 따라 협의\n- 수습기간 후 본인 희망 여부에 따라 Extended Health Benefit(건강, 치과, 생명보험) 제공\n\n*RESUME 및 포트폴리오 필수",
+    "image": null,
+    "accusation": [],
+    "recommend": [],
+    "comments": []
+  },
+  {
+    "num": 4,
+    "title": "ECE / IT 선생님 구인",
+    "date": "2022-06-11",
+    "writer": "icedetih",
+    "viewNum": 10,
+    "content": "직종 : 전문직\n연락처 : icdetih@gmail.com\n\n안녕하세요. 웨스트벤쿠버에 위치한 Infant & Toddler Daycare에서 1월부터 근무 가능하신 선생님을 찾습니다. 자격증은 ECE 혹은 ECE Assistant만 있으셔도 가능하고 월요일부터 금요일까지 주 30 -35시간 근무 가능하신분을 찾고있습니다. 교통은 다운타운에서 버스로 30분 안에 오실 수 있고 근무환경이나 프로그램도 flexible하게 진행되어서 크게 힘드실 일은 없을것 같아요. 관심있으시면 레주메와 연락처 이메일로 보내주세요. 감사합니다! :)\n\n이메일: icdetih@gmail.com\n\n\nElite Childcare is looking for an ECE(A) starting January, 2022.\n\n\n* Qualifications\n\n\n- ECEA / ECE / IT Certificate\n\n- Valid First Aid\n\n- Valid Criminal Records Check\n\n- 3 References\n\n\n* Skills\n\n\n- Develop and implement childcare programs that support and promote the physical, cognitive, emotional and social development of children\n\n- Lead activities by telling or reading stories, teaching songs and taking children to local points of interest\n\n- Provide opportunities to express creativity through the dramatic play, music and physical activity\n\n- Guide and assist children in the development of proper eating, dressing and toilet habits\n\n- Plan and maintain and environment that protects the health, security and well-being of children\n\n- Assess the abilities, interests and needs of children and discuss progress or problems with parents and other staff members\n\n\n* An extra $4/hour wage enhancement (WE) will be offered to eligible candidate\n\n\n* Job Types: Full-time\n\n\n* Schedule: Monday to Friday, 30 - 35 hours / week ",
+    "image": null,
+    "accusation": [],
+    "recommend": [],
+    "comments": []
+  },
+  {
+    "num": 5,
+    "title": "T-Brothers 사무직원 모집",
+    "date": "2022-06-16",
+    "writer": "t-brother",
+    "viewNum": 13,
+    "content": "직종 : 사무직\n연락처 : recruiting.tbrothers@gmail.com\n\n밴쿠버 대표 한인기업 T-Brothers Foods & Trading에서 사무직원을 모집합니다.\n\n \n\nT-Brothers는 1994년 설립되어 캐나다 코퀴틀람에 기반을 두고 캐나다 전역에 식품 관련 물품을 수입 및 유통을 선도하는 중견기업 입니다.  저희 T-Brothers는 비지니스 확장에 따라 열정적인 마인드를 가지고 함께 하실 분들을  모십니다.  업무는 배울수 있으니 열정과 성실함만 가지고 오시면 됩니다!  함께 일하기를 기대 하고 있습니다.              \n\n                    \n\n1.     자격요건:                        \n\n-      영어 능통자     \n\n-      MS Office  활용 능력 우수자 (PowerPoint, Excel, word)     \n\n-      캐나다에서 합법적으로 일할 수 있는 자 (영주권자 및 시민권자 우대, 워크퍼밋) \n\n-   학력: High school diploma  \n\n-      관련업무 경험자 우대                    \n\n              \n\n2.     근무조건:       \n\n-      주 5일/40시간 full time     \n\n-      점심식사 제공 (도시락 세트)   \n\n-      급여 :인터뷰 후 결정  \n\n-      6개월 근무 후 그룹보험 가능 (치과, 침, 약값, 마사지, 보험 등 각 종 혜택이 있습니다.)\n\n-      근무처: 100-88 Brigantine Dr, Coquitlam BC \n\n \n\n모집 분야 : 야채 관리  0명\n\n·         주요업무 :  \n\no   주요 거래처와 의사 소통 \n\n \n\n 모집 분야 : 지원팀  0명\n\n        ·         주요업무 :  \n\no   구매/영업 지원\n\no   리셉션 업무 (고객전화응대, Customer Service 등) \n\no   사무업무 (보고서 작성, Filing, Invoicing, Vendor관리 등) \n\n   \n\n   \n\n1.     지원방법\n\n-      이력서 제출 → recruiting.tbrothers@gmail.com\n\n-      이메일 제목 작성시 기입요령 (예시, TB_야채 관리_김영희)    \n\n \n\n         2.     COVID-19 precaution(s):\n\n-      Personal protective equipment provided (masks, hand sanitizer etc.) \n\n-      Plastic shield at work stations\n\n-   Temperature screenings\n\n-   Social distancing guidelines in place\n\n-   Sanitizing, disinfectiong, or cleaning procedures in place",
+    "image": null,
+    "accusation": [],
+    "recommend": [],
+    "comments": []
   }
 ]

@@ -145,7 +145,7 @@
 
             for (let i = 0; i <= x; i++) {
                 noticeStr += "<tr class='row'>";
-                noticeStr += "<td class=\"title\"><b><a href=\'../Notice/ViewNotice.html\' onclick=noticePage("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
+                noticeStr += "<td class=\"title\"><b><a href=\'../Notice/ViewNotice.html\' onclick=page("+sortedList[i]["num"] +"); >" + sortedList[i]["title"] + "</b></td>";
                 noticeStr += "<td class=\"date\"><b>" + sortedList[i]["date"] + "</b></td>";
                 noticeStr += "</tr>";
             }
@@ -381,10 +381,6 @@
         },300);
     });
 
-
-    function noticePage(num){
-        localStorage.setItem("currentNoticePage", num - 1);
-    }
     function page(num){
         localStorage.setItem("currentPage", num - 1);
     }

@@ -6,7 +6,7 @@
     "phoneNum": "010-1111-9119",
     "gender": "female",
     "organization": true,
-    "accusation": 3
+    "accusation": 4
   },
   {
     "name": "서연",
@@ -18,7 +18,7 @@
     "accusation": 0
   },
   {
-    "name": "한인단체",
+    "name": "주밴쿠버총영사관",
     "id": "hanin",
     "passwd": "1234",
     "phoneNum": "010-1234-1234",

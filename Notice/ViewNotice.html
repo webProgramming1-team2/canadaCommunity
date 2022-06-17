@@ -45,16 +45,16 @@
     let comments = [];
     let accLen,recLen;
     $.getJSON("../Data/Notice.json", function (data) {
-        num = data[localStorage.getItem("currentNoticePage")].num;
-        title = data[localStorage.getItem("currentNoticePage")].title;
-        date = data[localStorage.getItem("currentNoticePage")].date;
-        writer = data[localStorage.getItem("currentNoticePage")].writer;
-        data[localStorage.getItem("currentNoticePage")].viewNum+=1;
-        content = data[localStorage.getItem("currentNoticePage")].content;
-        image = data[localStorage.getItem("currentNoticePage")].image;
-        accusation = data[localStorage.getItem("currentNoticePage")].accusation;
-        recommend = data[localStorage.getItem("currentNoticePage")].recommend;
-        comments = data[localStorage.getItem("currentNoticePage")].comments;
+        num = data[localStorage.getItem("currentPage")].num;
+        title = data[localStorage.getItem("currentPage")].title;
+        date = data[localStorage.getItem("currentPage")].date;
+        writer = data[localStorage.getItem("currentPage")].writer;
+        data[localStorage.getItem("currentPage")].viewNum+=1;
+        content = data[localStorage.getItem("currentPage")].content;
+        image = data[localStorage.getItem("currentPage")].image;
+        accusation = data[localStorage.getItem("currentPage")].accusation;
+        recommend = data[localStorage.getItem("currentPage")].recommend;
+        comments = data[localStorage.getItem("currentPage")].comments;
         accLen=accusation.length;
         recLen=recommend.length;
         new saveJson(data).download();
@@ -237,7 +237,10 @@
             $("#accuseText").html(accLen);
             $("#recomText").html(recLen);
             $("#comments").html(cmtStr);
-        },200);
+            let textarea=document.getElementById("contentText")
+            const height=textarea.scrollHeight+8;
+            textarea.style.height=height+'px';
+        },300);
         if (localStorage.getItem("name")!==writer&&"admin" !== localStorage.getItem("id")) {
             $("#delete").css("display", "none");
         }

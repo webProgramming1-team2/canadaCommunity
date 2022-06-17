@@ -33,9 +33,9 @@ table {
 }
 
 #contentText{
+    height: auto;
     width: 98%;
     resize: none;
-    min-height: 500px;
     font-size: 15px;
     border-radius: 5px;
     border: 1px solid #c6c6c6;
